@@ -10,7 +10,7 @@ test('every entry has a unique route, public sources, scope, and evidence bounda
   assert.equal(new Set(data.entries.map(entry=>entry.id)).size,data.entries.length);
   for (const entry of data.entries) {
     assert.match(entry.id,/^[a-z0-9-]+$/);
-    for (const key of ['project','update','capability','trackerScope','artifact','reviewed','scope','meaning','revision']) assert.ok(entry[key],`${entry.id}: missing ${key}`);
+    for (const key of ['project','update','capability','trackerScope','artifact','reviewed','scope','meaning','revision','reviewBasis']) assert.ok(entry[key],`${entry.id}: missing ${key}`);
     assert.ok(entry.limits.length && entry.observed.length && entry.sources.length);
     for (const source of entry.sources) assert.equal(new URL(source.url).protocol,'https:');
   }
@@ -35,6 +35,19 @@ test('the static build resolves every internal page and asset under a Pages subp
     }
   }
   await walk('dist');
+});
+test('held records remain accessible but cannot enter the main register or its filter counts', async () => {
+  const home = await readFile('dist/index.html', 'utf8');
+  const coverage = await readFile('dist/coverage/index.html', 'utf8');
+  const accepted = data.entries.filter(entry => !entry.held);
+  assert.equal([...home.matchAll(/<tr data-entry /g)].length, accepted.length);
+  for (const entry of data.entries.filter(entry => entry.held)) {
+    assert.ok(!home.includes(`notes/${entry.id}/`));
+    assert.ok(coverage.includes(`notes/${entry.id}/`));
+    const detail = await readFile(`dist/notes/${entry.id}/index.html`, 'utf8');
+    assert.ok(detail.includes('Pending evidence'));
+    assert.ok(detail.includes(entry.reviewBasis));
+  }
 });
 const old={repository:'owner/research',commit:'a'.repeat(40),release:null};
 const fresh={commit:'b'.repeat(40),release:{id:123,tag:'v1'}};
