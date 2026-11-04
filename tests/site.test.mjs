@@ -40,7 +40,7 @@ test('held records remain accessible but cannot enter the main register or its f
   const home = await readFile('dist/index.html', 'utf8');
   const coverage = await readFile('dist/coverage/index.html', 'utf8');
   const accepted = data.entries.filter(entry => !entry.held);
-  assert.equal([...home.matchAll(/<tr data-entry /g)].length, accepted.length);
+  assert.equal([...home.matchAll(/<li data-entry /g)].length, accepted.length);
   for (const entry of data.entries.filter(entry => entry.held)) {
     assert.ok(!home.includes(`notes/${entry.id}/`));
     assert.ok(coverage.includes(`notes/${entry.id}/`));
@@ -77,21 +77,21 @@ test('reviewed baselines close their own review issue, without modifying another
   assert.equal(calls.length,1);assert.equal(calls[0].url,'/repos/owner/tracker/issues/5');
   assert.equal(calls[0].options.body.state,'closed');
 });
-test('priority rows lead the ledger at a larger tier, and every accepted entry appears once', async () => {
+test('priority entries lead the tracker with their reason and next step, and every accepted entry appears once', async () => {
   const home = await readFile('dist/index.html', 'utf8');
   const accepted = data.entries.filter(entry => !entry.held);
   const priority = accepted.filter(entry => entry.priority).sort((a, b) => a.priority - b.priority);
-  const order = [...home.matchAll(/<tr data-entry [^>]*data-id="([^"]+)"/g)].map(match => match[1]);
+  const order = [...home.matchAll(/<li data-entry [^>]*data-id="([^"]+)"/g)].map(match => match[1]);
   assert.deepEqual(order.slice(0, priority.length), priority.map(entry => entry.id));
   assert.equal(order.length, accepted.length);
   assert.equal(new Set(order).size, accepted.length);
   for (const entry of priority) {
     for (const key of ['priorityNote', 'nextStep']) assert.ok(entry[key], `${entry.id}: priority entries need ${key}`);
-    const row = home.match(new RegExp(`<tr data-entry [^>]*data-id="${entry.id}"[\\s\\S]*?</tr>`))[0];
-    assert.match(row, new RegExp(`class="row p${Math.min(entry.priority, 3)}`));
+    const row = home.match(new RegExp(`<li data-entry [^>]*data-id="${entry.id}"[\\s\\S]*?</li>`))[0];
+    assert.match(row, new RegExp(`class="item p${Math.min(entry.priority, 3)}`));
     assert.ok(row.includes(entry.nextStep.replace(/&/g, '&amp;')));
   }
-  if (priority.length) assert.match(home, new RegExp(`data-id="${priority[0].id}"[^>]*class="row p1 lead"`));
+  if (priority.length) assert.match(home, new RegExp(`data-id="${priority[0].id}"[^>]*class="item p1 lead"`));
 });
 test('source checks record an explicit state, and the feed lists only accepted entries', async () => {
   const coverage = JSON.parse(await readFile(new URL('../data/coverage.json', import.meta.url)));
