@@ -2,7 +2,7 @@
 
 A static tracker for iOS jailbreak research, PoCs, demonstrations, and releases.
 
-The main view leads with the priority watch (entries with a `priority`, ranked for jailbreak relevance), then lists every accepted development with its stage, capability, target, and primary source. Each entry links to a full evidence record. Readers can filter, search, sort by date, and see what changed since their last visit. `feed.xml` publishes the register as an Atom feed.
+The main view is one ranked ledger. Entries with a `priority` lead it at a larger scale (priority 1 largest), followed by every other accepted development. Each row shows stage, capability, target, and the primary source, and links to a full evidence record. Readers can filter, search, and see what changed since their last visit. `feed.xml` publishes the register as an Atom feed.
 
 ## Local use
 
@@ -38,4 +38,4 @@ npm run watch:upstream
 
 ## Publication
 
-GitHub Pages uses the `Publish site` Actions workflow. All internal paths are relative so the site works under a project URL such as `/ios-research-tracker/`. The site makes no visitor-side API calls and uses no external fonts, analytics, or client framework.
+GitHub Pages uses the `Publish site` Actions workflow. All internal paths are relative so the site works under a project URL such as `/ios-research-tracker/`. The site makes no visitor-side API calls and uses no analytics, client framework, or third-party font service. IBM Plex Sans and Plex Mono are self-hosted in `assets/fonts` under the SIL Open Font License.

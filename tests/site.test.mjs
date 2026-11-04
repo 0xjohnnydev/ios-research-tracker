@@ -77,17 +77,21 @@ test('reviewed baselines close their own review issue, without modifying another
   assert.equal(calls.length,1);assert.equal(calls[0].url,'/repos/owner/tracker/issues/5');
   assert.equal(calls[0].options.body.state,'closed');
 });
-test('priority items lead the page, and every accepted entry appears once in the register', async () => {
+test('priority rows lead the ledger at a larger tier, and every accepted entry appears once', async () => {
   const home = await readFile('dist/index.html', 'utf8');
   const accepted = data.entries.filter(entry => !entry.held);
   const priority = accepted.filter(entry => entry.priority).sort((a, b) => a.priority - b.priority);
-  const watch = home.slice(home.indexOf('data-priorities'), home.indexOf('id="record"'));
+  const order = [...home.matchAll(/<tr data-entry [^>]*data-id="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(order.slice(0, priority.length), priority.map(entry => entry.id));
+  assert.equal(order.length, accepted.length);
+  assert.equal(new Set(order).size, accepted.length);
   for (const entry of priority) {
     for (const key of ['priorityNote', 'nextStep']) assert.ok(entry[key], `${entry.id}: priority entries need ${key}`);
-    assert.ok(watch.includes(`notes/${entry.id}/`), `${entry.id} missing from priority watch`);
+    const row = home.match(new RegExp(`<tr data-entry [^>]*data-id="${entry.id}"[\\s\\S]*?</tr>`))[0];
+    assert.match(row, new RegExp(`class="row p${Math.min(entry.priority, 3)}`));
+    assert.ok(row.includes(entry.nextStep.replace(/&/g, '&amp;')));
   }
-  if (priority.length) assert.match(watch, new RegExp(`class="lead" data-id="${priority[0].id}"`));
-  for (const entry of accepted) assert.equal([...home.matchAll(new RegExp(`<tr data-entry [^>]*data-id="${entry.id}"`, 'g'))].length, 1);
+  if (priority.length) assert.match(home, new RegExp(`data-id="${priority[0].id}"[^>]*class="row p1 lead"`));
 });
 test('source checks record an explicit state, and the feed lists only accepted entries', async () => {
   const coverage = JSON.parse(await readFile(new URL('../data/coverage.json', import.meta.url)));

@@ -5,8 +5,9 @@ for (const time of document.querySelectorAll('time[data-ago]')) {
   if (!Number.isFinite(minutes) || minutes < 0) continue;
   const ago = minutes < 60 ? `${Math.max(minutes, 1)} min ago` : minutes < 48 * 60 ? `${Math.round(minutes / 60)} h ago` : `${Math.round(minutes / 1440)} days ago`;
   time.title = time.textContent;
-  time.textContent = ago;
-  if (minutes > 13 * 60) time.closest('.pass')?.classList.add('stale');
+  const stale = minutes > 13 * 60;
+  time.textContent = stale ? `${ago}, overdue` : ago;
+  if (stale) time.closest('.pass')?.classList.add('stale');
 }
 
 // Mark developments that are new or changed since the reader's previous visit.
@@ -35,21 +36,14 @@ for (const time of document.querySelectorAll('time[data-ago]')) {
 const form = document.querySelector('[data-filters]');
 if (form) {
   form.hidden = false;
-  const body = document.querySelector('.register-table tbody');
-  const rows = [...body.querySelectorAll('[data-entry]')];
+  const groups = [...document.querySelectorAll('[data-group]')];
+  const rows = [...document.querySelectorAll('[data-entry]')];
   const buttons = [...form.querySelectorAll('[data-filter]')];
   const input = form.querySelector('input');
-  const sort = form.querySelector('[data-sort]');
   const empty = document.querySelector('[data-empty]');
-  const priorities = document.querySelector('[data-priorities]');
   const params = new URLSearchParams(location.search);
   let filter = buttons.some(button => button.dataset.filter === params.get('type')) ? params.get('type') : 'all';
   input.value = params.get('q') || '';
-  sort.value = params.get('sort') === 'newest' ? 'newest' : 'relevance';
-  const order = {
-    relevance: (a, b) => a.dataset.rank - b.dataset.rank,
-    newest: (a, b) => b.dataset.date.localeCompare(a.dataset.date) || a.dataset.rank - b.dataset.rank,
-  };
   function update() {
     const query = input.value.trim().toLocaleLowerCase();
     let count = 0;
@@ -57,20 +51,17 @@ if (form) {
       row.hidden = !((filter === 'all' || row.dataset.type === filter) && row.dataset.search.toLocaleLowerCase().includes(query));
       if (!row.hidden) count++;
     }
-    body.append(...[...rows].sort(order[sort.value]));
+    for (const group of groups) group.hidden = !group.querySelector('[data-entry]:not([hidden])');
     for (const button of buttons) button.setAttribute('aria-pressed', button.dataset.filter === filter);
     empty.hidden = count !== 0;
-    if (priorities) priorities.hidden = filter !== 'all' || Boolean(query);
     document.querySelector('[data-results]').textContent = `${count} ${count === 1 ? 'entry' : 'entries'} shown.`;
     const next = new URL(location.href);
     filter === 'all' ? next.searchParams.delete('type') : next.searchParams.set('type', filter);
     query ? next.searchParams.set('q', input.value.trim()) : next.searchParams.delete('q');
-    sort.value === 'newest' ? next.searchParams.set('sort', 'newest') : next.searchParams.delete('sort');
     history.replaceState(null, '', next);
   }
   form.addEventListener('submit', event => { event.preventDefault(); update(); });
   input.addEventListener('input', update);
-  sort.addEventListener('change', update);
   for (const button of buttons) button.addEventListener('click', () => { filter = button.dataset.filter; update(); });
   document.querySelector('[data-reset]').addEventListener('click', () => { filter = 'all'; input.value = ''; update(); input.focus(); });
   document.addEventListener('keydown', event => {
