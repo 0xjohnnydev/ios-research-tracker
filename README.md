@@ -20,13 +20,15 @@ Edit `data/notes.json`. Keep observed effects, interpretation, and unresolved st
 
 For a watched repository, update `data/upstream.json` only after reviewing the new commit or release. Submit changes through a branch and pull request. A merge to `main` runs the build checks and publishes through GitHub Pages.
 
-## Daily repository checks
+## Twice-daily research loop
 
-The `Check upstream repositories` workflow runs at 16:23 UTC daily and supports manual dispatch. It checks the default-branch commit and newest published release for six repositories. Pre-releases count as published releases; drafts do not.
+A local Codex research loop checks X, Discord, and GitHub at 08:00 and 20:00 Pacific. It follows public leads, inspects actual source, and publishes qualifying updates through passing pull requests. See [the review procedure](docs/review-loop.md). The local computer, app, and signed-in sessions must be available. Blocked or incomplete source checks remain visible on the coverage page.
+
+The `Check upstream repositories` workflow runs at 03:23 and 15:23 UTC daily and supports manual dispatch. It checks the default-branch commit and newest published release for six repositories. Pre-releases count as published releases; drafts do not.
 
 A change opens one `upstream-review` issue per repository. Later changes update that issue. An identical snapshot stays quiet. Once the reviewed baseline catches up, the workflow closes the matching issue. Failed source checks fail the workflow instead of being reported as current.
 
-The workflow does not change public entries or infer a new exploit capability. It does not monitor X, Discord, or vendor advisories. Those need a separate research review. No custom access token is required; the workflow uses GitHub’s repository-scoped token with read access to contents and write access to this repository’s issues.
+The repository workflow does not change public entries or infer a new exploit capability. The local research loop performs that review and the social-source checks. It records source inspection separately from independent reproduction. Low-evidence items can be retained with `held: true` outside the main register; new entries need a concrete `reviewBasis`. No custom access token is required; the workflow uses GitHub’s repository-scoped token with read access to contents and write access to this repository’s issues.
 
 To inspect current upstream state locally without creating or editing issues:
 

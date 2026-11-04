@@ -1,7 +1,7 @@
 name: Check upstream repositories
 on:
   schedule:
-    - cron: '23 16 * * *'
+    - cron: '23 3,15 * * *'
   workflow_dispatch:
 permissions:
   contents: read

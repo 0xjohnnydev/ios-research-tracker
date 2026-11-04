@@ -41,7 +41,8 @@
       "reviewed": "2026-11-03",
       "priority": 1,
       "priorityNote": "opa334 describes a path to A12/A13 Dopamine support. Newer devices still need an SPTM bypass.",
-      "nextStep": "Public source and an exact support matrix."
+      "nextStep": "Public source and an exact support matrix.",
+      "reviewBasis": "Original researcher announcement; source release pending."
     },
     {
       "id": "calif-lockdown-update",
@@ -83,7 +84,8 @@
       "reviewed": "2026-11-03",
       "priority": 2,
       "priorityNote": "Tweak behavior returns after an update to 27.2. A fresh compromise of 27.2 is not established.",
-      "nextStep": "Implementation details or independent reproduction."
+      "nextStep": "Implementation details or independent reproduction.",
+      "reviewBasis": "Original demonstration reviewed; implementation unavailable."
     },
     {
       "id": "liter8-lab-updates",
@@ -132,7 +134,8 @@
       "reviewed": "2026-11-03",
       "priority": 3,
       "priorityNote": "A released, tethered iPhone 11 research setup. v0.2.3 adds persistent Wi-Fi credentials and SFTP.",
-      "nextStep": "SEP, passcode, and cellular data remain limited."
+      "nextStep": "Expanded SEP, passcode, or cellular support.",
+      "reviewBasis": "Source, release notes, and exact-build run notes reviewed."
     },
     {
       "id": "rawcamera-canon",
@@ -173,7 +176,8 @@
       "capability": "Out-of-bounds buffer write",
       "trackerScope": "macOS 26.6.2 (25G83) tested; fixed in iOS 27",
       "artifact": "Report + PoC",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Original report includes a trigger, control, and debugger measurements."
     },
     {
       "id": "rawcamera-phase-one",
@@ -214,7 +218,8 @@
       "capability": "16-bit read-modify-write overflow",
       "trackerScope": "macOS 26.6.2 (25G83) tested; fixed in iOS 27",
       "artifact": "Report + PoC",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Original report includes a one-tag control and measured overflow."
     },
     {
       "id": "linkpresentation-heic",
@@ -256,7 +261,8 @@
       "capability": "Neighboring-buffer corruption",
       "trackerScope": "macOS 26.7 (25G229) detailed; iPhone tests reported",
       "artifact": "Source + report",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Generator source and measured neighboring-buffer corruption documented."
     },
     {
       "id": "ave-temporal-layers",
@@ -292,7 +298,8 @@
       "capability": "Kernel crash",
       "trackerScope": "iPhone18,1; iOS 27.0.1 (24A446)",
       "artifact": "Source + panic",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Trigger source and supplied device panic; crash capability only."
     },
     {
       "id": "coremedia-file-descriptors",
@@ -334,13 +341,14 @@
       "capability": "Limited file read",
       "trackerScope": "iOS 26.5 / 27.0 / 27.0.1 reported",
       "artifact": "Source + logs",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Source and supplied reads compared with denied direct-open controls."
     },
     {
       "id": "coregraphics-shading",
       "date": "2026-10-27",
       "type": "poc",
-      "status": "PoC · provisional",
+      "status": "Pending evidence",
       "topic": "CoreGraphics / PDF",
       "title": "A PDF shading reproduction reports input-controlled pointer corruption.",
       "dek": "The generator and fix analysis offer a useful hypothesis to reproduce. Raw crash reports are withheld, and the exact CVE mapping remains tentative.",
@@ -369,7 +377,9 @@
       "capability": "Pointer corruption reported",
       "trackerScope": "iPhone 16e; iOS 27.0 RC (24A435) reported",
       "artifact": "Source + analysis",
-      "reviewed": "2026-11-03"
+      "reviewed": "2026-11-03",
+      "reviewBasis": "Raw crash evidence withheld; CVE assignment remains tentative.",
+      "held": true
     }
   ]
 }
