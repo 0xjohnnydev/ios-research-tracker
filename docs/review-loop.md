@@ -28,7 +28,7 @@ Only add material changes to `data/notes.json`. Each entry needs a short update,
 
 Rank by practical jailbreak relevance and demonstrated capability. A credible announced kernel exploit can lead the watchlist while its status remains announced. Keep low-evidence items outside the main register. Do not manufacture numerical confidence scores.
 
-Update `data/upstream.json` only after reviewing the new commit or release. Update `data/coverage.json` with factual source results, including blocked and partial checks. Keep source-specific watermarks and discovery notes under ignored `.local/`; store no credentials.
+Update `data/upstream.json` only after reviewing the new commit or release. Update `data/coverage.json` with factual source results, including blocked and partial checks. Set each source's `state` to `checked` (the planned sample ran), `partial` (the sample was incomplete), or `blocked` (the source was inaccessible). The tests reject any other value. Keep source-specific watermarks and discovery notes under ignored `.local/`; store no credentials.
 
 Review code and substantive research claims with the Alfie skill before delivery. Run the existing tests and build. Make one branch and pull request for the pass, confirm the remote before pushing, merge only passing changes, and verify the Pages deployment. Do not push to `main`. Do not change the UI during a scheduled source pass unless a defect prevents correct use.
 
