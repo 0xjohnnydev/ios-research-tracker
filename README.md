@@ -2,7 +2,7 @@
 
 A static tracker for iOS jailbreak research, PoCs, demonstrations, and releases.
 
-The main view compares status, capability, device/build scope, public artifacts, and review dates. Each entry links to a full evidence record and primary sources.
+The main view leads with the priority watch (entries with a `priority`, ranked for jailbreak relevance), then lists every accepted development with its stage, capability, target, and primary source. Each entry links to a full evidence record. Readers can filter, search, sort by date, and see what changed since their last visit. `feed.xml` publishes the register as an Atom feed.
 
 ## Local use
 
@@ -16,13 +16,13 @@ python3 -m http.server 4173 --directory dist
 
 ## Updating the record
 
-Edit `data/notes.json`. Keep observed effects, interpretation, and unresolved steps separate. Set the entry’s `reviewed` date and the top-level review date when a research review is complete. Dates displayed by the site are Pacific calendar dates unless an entry says otherwise.
+Edit `data/notes.json`. Keep observed effects, interpretation, and unresolved steps separate. Priority entries also need `priorityNote` and `nextStep`; the lowest `priority` number becomes the lead card. Set the entry’s `reviewed` date and the top-level review date when a research review is complete. Dates displayed by the site are Pacific calendar dates unless an entry says otherwise.
 
 For a watched repository, update `data/upstream.json` only after reviewing the new commit or release. Submit changes through a branch and pull request. A merge to `main` runs the build checks and publishes through GitHub Pages.
 
 ## Twice-daily research loop
 
-A local Codex research loop checks X, Discord, and GitHub at 08:00 and 20:00 Pacific. It follows public leads, inspects actual source, and publishes qualifying updates through passing pull requests. See [the review procedure](docs/review-loop.md). The local computer, app, and signed-in sessions must be available. Blocked or incomplete source checks remain visible on the coverage page.
+A local Codex research loop checks X, Discord, and GitHub at 08:00 and 20:00 Pacific. It follows public leads, inspects actual source, and publishes qualifying updates through passing pull requests. See [the review procedure](docs/review-loop.md). The local computer, app, and signed-in sessions must be available. Each source in `data/coverage.json` records a `state` of `checked`, `partial`, or `blocked`, shown on the home page and the coverage page. Blocked or incomplete source checks remain visible there.
 
 The `Check upstream repositories` workflow runs at 03:23 and 15:23 UTC daily and supports manual dispatch. It checks the default-branch commit and newest published release for six repositories. Pre-releases count as published releases; drafts do not.
 

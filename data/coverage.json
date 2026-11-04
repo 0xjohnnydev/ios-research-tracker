@@ -3,18 +3,21 @@
     {
       "name": "X / Twitter",
       "checkedAt": "2026-11-04T04:12:00Z",
+      "state": "checked",
       "result": "Existing priority items reconfirmed",
       "scope": "Latest-search sample of pwnlambda, calif_io, opa334dev, and alfiecg_dev posts from November 3. The release announcement and persistence demo are already tracked."
     },
     {
       "name": "Discord",
       "checkedAt": "2026-11-04T04:13:00Z",
+      "state": "partial",
       "result": "Discovery sample reviewed",
       "scope": "Recent linked research discussions sampled. Existing Calif sources resurfaced. A screenshot-only lead was held for stronger public evidence. Search coverage was partial."
     },
     {
       "name": "GitHub",
       "checkedAt": "2026-11-04T04:19:17Z",
+      "state": "checked",
       "result": "Six watched repositories unchanged",
       "scope": "Default-branch commits and newest public releases compared with reviewed baselines. Research claims remain tied to their reviewed revisions."
     }

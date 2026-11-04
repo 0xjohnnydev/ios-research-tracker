@@ -77,3 +77,26 @@ test('reviewed baselines close their own review issue, without modifying another
   assert.equal(calls.length,1);assert.equal(calls[0].url,'/repos/owner/tracker/issues/5');
   assert.equal(calls[0].options.body.state,'closed');
 });
+test('priority items lead the page, and every accepted entry appears once in the register', async () => {
+  const home = await readFile('dist/index.html', 'utf8');
+  const accepted = data.entries.filter(entry => !entry.held);
+  const priority = accepted.filter(entry => entry.priority).sort((a, b) => a.priority - b.priority);
+  const watch = home.slice(home.indexOf('data-priorities'), home.indexOf('id="record"'));
+  for (const entry of priority) {
+    for (const key of ['priorityNote', 'nextStep']) assert.ok(entry[key], `${entry.id}: priority entries need ${key}`);
+    assert.ok(watch.includes(`notes/${entry.id}/`), `${entry.id} missing from priority watch`);
+  }
+  if (priority.length) assert.match(watch, new RegExp(`class="lead" data-id="${priority[0].id}"`));
+  for (const entry of accepted) assert.equal([...home.matchAll(new RegExp(`<tr data-entry [^>]*data-id="${entry.id}"`, 'g'))].length, 1);
+});
+test('source checks record an explicit state, and the feed lists only accepted entries', async () => {
+  const coverage = JSON.parse(await readFile(new URL('../data/coverage.json', import.meta.url)));
+  for (const source of coverage.sources) {
+    assert.ok(['checked', 'partial', 'blocked'].includes(source.state), `${source.name}: state must be checked, partial, or blocked`);
+    assert.ok(!Number.isNaN(Date.parse(source.checkedAt)));
+  }
+  const feed = await readFile('dist/feed.xml', 'utf8');
+  assert.match(feed, /^<\?xml version="1.0" encoding="utf-8"\?>\n<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
+  assert.equal([...feed.matchAll(/<entry>/g)].length, data.entries.filter(entry => !entry.held).length);
+  for (const entry of data.entries.filter(entry => entry.held)) assert.ok(!feed.includes(`notes/${entry.id}/`));
+});
