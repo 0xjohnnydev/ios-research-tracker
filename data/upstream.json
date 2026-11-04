@@ -1,0 +1,11 @@
+{
+  "reviewed": "2026-11-03",
+  "repositories": [
+    {"repository":"Xplo8E/Liter8","commit":"fd46d747ec89ff39dd492620101f2c41e6b096c4","release":{"id":432286380,"tag":"v0.2.3"}},
+    {"repository":"MchinaMd57764/AVETemporalPoC-CVE-2026-112705","commit":"ace18d23f059bc9a69305e74a837b06395c3ffc2","release":null},
+    {"repository":"MchinaMd57764/CVE-2026-112706-CoreMedia-fd-leak","commit":"ead6cf102736cbe5077bef1a892c7da170851de3","release":null},
+    {"repository":"Xplo8E/CVE-2026-112621-oob-write-poc","commit":"c514d0e4b46ab0b5af9a488d7e81e7d50278bb7c","release":null},
+    {"repository":"Ping-2o/CVE-2026-112611-cg-shading","commit":"ef20b59a9793147f82d0d13541a46ca34866cbf1","release":null},
+    {"repository":"pwnlambda/talks","commit":"46ed3b98f8cea660d0ce50dd0311736a88981bed","release":null}
+  ]
+}
