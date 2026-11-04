@@ -1,7 +1,12 @@
 import { readFile, mkdir, writeFile, cp, rm } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const assetVersion = createHash('sha256')
+  .update(await readFile(`${root}assets/style.css`))
+  .update(await readFile(`${root}assets/site.js`))
+  .digest('hex').slice(0, 12);
 const data = JSON.parse(await readFile(`${root}data/notes.json`, 'utf8'));
 const coverage = JSON.parse(await readFile(`${root}data/coverage.json`, 'utf8'));
 const upstream = JSON.parse(await readFile(`${root}data/upstream.json`, 'utf8'));
@@ -23,7 +28,7 @@ function shell({title, description, body, base = '', active = 'record'}) {
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escape(title)} | iOS Research Tracker</title><meta name="description" content="${escape(description)}"><meta name="theme-color" content="#f8f9fa">
 <meta property="og:title" content="${escape(title)} | iOS Research Tracker"><meta property="og:description" content="${escape(description)}"><meta property="og:type" content="website">
-<link rel="icon" href="${base}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/style.css"><script src="${base}assets/site.js" defer></script>
+<link rel="icon" href="${base}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/style.css?v=${assetVersion}"><script src="${base}assets/site.js?v=${assetVersion}" defer></script>
 </head><body><a class="skip" href="#main">Skip to content</a>
 <div class="workspace"><aside class="sidebar">
 <a class="wordmark" href="${base || './'}"><span class="brand-mark" aria-hidden="true">i</span><span>iOS Research<span class="brand-sub">Development tracker</span></span></a>
