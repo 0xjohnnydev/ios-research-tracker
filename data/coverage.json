@@ -2,24 +2,24 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-04T16:08:08Z",
+      "checkedAt": "2026-11-05T16:09:51Z",
       "state": "checked",
-      "result": "MIE-support statement and disclosure clarification found",
-      "scope": "Sampled the cited researchers’ Latest results and a focused discovery search from November 2 onward. Read the November 4 MIE-support reply and Stefan Esser’s disclosure statement directly, including visible thread context. No public kernel-exploit artifact was verified."
+      "result": "Preview/MTE explanation added; no public kernel release verified",
+      "scope": "Sampled cited researchers and a focused Latest discovery search from November 3 onward. Read Esser’s November 4 Preview/MTE explanation directly. A new limited-read video claim remains held because its source release is pending; unrelated posts and repeated announcements were excluded."
     },
     {
       "name": "Discord",
-      "checkedAt": "2026-11-04T16:08:08Z",
+      "checkedAt": "2026-11-05T16:09:51Z",
       "state": "partial",
-      "result": "Public disclosure lead verified; older repository repost excluded",
-      "scope": "Searched four accessible research channels for recent links. Followed leads to public original posts. One high-volume channel was limited to its first 25 of 166 search results, and some reply context could not be loaded. Erosion’s latest release was from September, so it was not added as new research."
+      "result": "Four research-channel searches sampled",
+      "scope": "Used an overlapping date window to review six general-channel and seven development-channel results, plus an empty resources search. The high-volume jailbreak channel was limited to the first 25 of 222 results. Some reply context could not be loaded. Leads were checked against public original sources."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-04T16:08:08Z",
+      "checkedAt": "2026-11-05T16:09:51Z",
       "state": "checked",
-      "result": "Six watched repositories unchanged",
-      "scope": "Default-branch commits and newest public releases match all six reviewed baselines. No open upstream-review issues. A newly surfaced Erosion link points to an older release and was excluded from this pass."
+      "result": "Six watched repositories unchanged; delayed update published",
+      "scope": "All six watched commit/release baselines remain current and no upstream-review issues are open. The previously delayed November 4 update passed checks and deployed. Newly surfaced static-analysis notes remain a review lead; their runtime reachability and technical conclusions were not independently verified in this pass."
     }
   ]
 }
