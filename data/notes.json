@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-11-04",
+  "reviewed": "2026-11-05",
   "entries": [
     {
       "id": "calif-kernel-release",
@@ -62,14 +62,16 @@
       "observed": [
         "Calif posted a three-minute video on November 3 captioned “Lockdown Mode helps, until it doesn’t.” The video shows tweak behavior, an update/reboot sequence, and the behavior returning afterward.",
         "MacRumors reports the device as an iPhone 18 Pro and describes the initial delivery as a PDF accepted through AirDrop.",
-        "On November 4, Calif researcher Stefan Esser said the team’s videos should not be assumed to use a single chain. He said vulnerability details would be withheld until fixes, a refusal to fix, or an unreasonable delay."
+        "On November 4, Calif researcher Stefan Esser said the team’s videos should not be assumed to use a single chain. He said vulnerability details would be withheld until fixes, a refusal to fix, or an unreasonable delay.",
+        "In a November 4 public post, Stefan Esser said AirDrop was chosen to open the PDF in Preview. He said Preview has Memory Tagging Extension (MTE) enabled when Lockdown Mode is active. This is a researcher explanation of the demonstrated process configuration."
       ],
       "meaning": "Surviving an update can matter even when the original entry point has been patched. The observed sequence supports a persistence demonstration on the shown setup; it does not identify the mechanism that restores the behavior.",
       "limits": [
         "The video does not establish a fresh compromise of a stock device already running iOS 27.2.",
         "No public implementation, persistence mechanism, or complete support matrix was verified.",
         "The public demo was reviewed through its visible sequence. It has not been independently reproduced here.",
-        "Esser’s statement does not identify the individual bugs or map the stages across the videos. It does not establish which private stages will be included in the separately announced kernel-exploit release."
+        "Esser’s statement does not identify the individual bugs or map the stages across the videos. It does not establish which private stages will be included in the separately announced kernel-exploit release.",
+        "The Preview MTE activation policy is attributed to Esser. This review did not independently inspect the process configuration or reproduce the exploit, and the statement does not establish that all iOS processes use the same policy."
       ],
       "sources": [
         {
@@ -86,19 +88,24 @@
           "title": "Stefan Esser on multiple chains and disclosure conditions",
           "url": "https://x.com/i0n1c/status/2117973684430451162",
           "kind": "Calif researcher statement, November 4"
+        },
+        {
+          "title": "Stefan Esser explains AirDrop, Preview, and Lockdown Mode MTE",
+          "url": "https://x.com/i0n1c/status/2117942043225829845",
+          "kind": "Original researcher explanation, November 4"
         }
       ],
-      "revision": "Video and original public researcher statements reviewed through November 4, 2026. New disclosure statement posted at 05:34 Pacific.",
+      "revision": "Original video and public researcher statements reviewed through November 5, 2026. Preview/MTE explanation published November 4.",
       "project": "Calif persistence demo",
-      "update": "Nov 4: researcher says multiple chains; details remain withheld.",
+      "update": "Researcher clarifies Preview’s MTE configuration in Lockdown Mode.",
       "capability": "Persistence shown in video",
       "trackerScope": "Reported iPhone 18 Pro; iOS 27.2 displayed",
       "artifact": "Video",
-      "reviewed": "2026-11-04",
+      "reviewed": "2026-11-05",
       "priority": 2,
-      "priorityNote": "Esser says more than one chain is involved. Vulnerability details remain withheld under his stated disclosure conditions.",
+      "priorityNote": "Esser says AirDrop was chosen to open Preview with MTE enabled in Lockdown Mode. The chain remains private.",
       "nextStep": "Implementation details or independent reproduction.",
-      "reviewBasis": "Original video and researcher clarification; implementation and independent reproduction unavailable."
+      "reviewBasis": "Original video and attributed researcher explanations; process configuration and exploit not independently verified."
     },
     {
       "id": "liter8-lab-updates",
