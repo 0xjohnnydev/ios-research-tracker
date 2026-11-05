@@ -2,24 +2,24 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-04T04:12:00Z",
+      "checkedAt": "2026-11-04T16:08:08Z",
       "state": "checked",
-      "result": "Existing priority items reconfirmed",
-      "scope": "Latest-search sample of pwnlambda, calif_io, opa334dev, and alfiecg_dev posts from November 3. The release announcement and persistence demo are already tracked."
+      "result": "MIE-support statement and disclosure clarification found",
+      "scope": "Sampled the cited researchers’ Latest results and a focused discovery search from November 2 onward. Read the November 4 MIE-support reply and Stefan Esser’s disclosure statement directly, including visible thread context. No public kernel-exploit artifact was verified."
     },
     {
       "name": "Discord",
-      "checkedAt": "2026-11-04T04:13:00Z",
+      "checkedAt": "2026-11-04T16:08:08Z",
       "state": "partial",
-      "result": "Discovery sample reviewed",
-      "scope": "Recent linked research discussions sampled. Existing Calif sources resurfaced. A screenshot-only lead was held for stronger public evidence. Search coverage was partial."
+      "result": "Public disclosure lead verified; older repository repost excluded",
+      "scope": "Searched four accessible research channels for recent links. Followed leads to public original posts. One high-volume channel was limited to its first 25 of 166 search results, and some reply context could not be loaded. Erosion’s latest release was from September, so it was not added as new research."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-04T04:19:17Z",
+      "checkedAt": "2026-11-04T16:08:08Z",
       "state": "checked",
       "result": "Six watched repositories unchanged",
-      "scope": "Default-branch commits and newest public releases compared with reviewed baselines. Research claims remain tied to their reviewed revisions."
+      "scope": "Default-branch commits and newest public releases match all six reviewed baselines. No open upstream-review issues. A newly surfaced Erosion link points to an older release and was excluded from this pass."
     }
   ]
 }

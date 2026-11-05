@@ -1,5 +1,5 @@
 {
-  "reviewed": "2026-11-03",
+  "reviewed": "2026-11-04",
   "entries": [
     {
       "id": "calif-kernel-release",
@@ -7,20 +7,26 @@
       "type": "announced",
       "status": "Release announced",
       "topic": "Calif / kernel research",
-      "title": "Calif’s kernel exploit moves toward a public release.",
-      "dek": "Anna Groza is aiming to publish an exploit and write-up. opa334 describes a path to broader Dopamine support on A12 and A13. The code and exact support matrix are still pending.",
-      "scope": "A12 / A13 integration discussed; final firmware scope pending",
+      "title": "Calif kernel exploit: author claims MIE support.",
+      "dek": "Anna Groza says the planned kernel exploit supports Memory Integrity Enforcement (MIE). Public source, exact device/build coverage, and independent verification remain pending.",
+      "scope": "A12/A13 integration discussed; MIE support claimed, final device/build matrix pending",
       "observed": [
         "Anna Groza (@pwnlambda) said on November 3 that she is aiming to release the iOS kernel read/write exploit and write-up within roughly a week.",
-        "opa334 separately said he expects to extend Dopamine to the exploit’s supported versions on A12/A13 using momentarius. He said A14 and newer still need an SPTM bypass."
+        "opa334 separately said he expects to extend Dopamine to the exploit’s supported versions on A12/A13 using momentarius. He said A14 and newer still need an SPTM bypass.",
+        "On November 4, Anna Groza said the planned release is a working exploit with MIE support. The statement repeats an approximately one-week wait; it does not publish the implementation or an exact support matrix."
       ],
-      "meaning": "This is a concrete publication plan with a jailbreak maintainer’s explanation of where the result could fit. A kernel read/write primitive would offer substantially more capability than a crash reproducer. The practical effect still depends on the released implementation and its exact support.",
+      "meaning": "The original researcher has now made MIE support an explicit claim for the planned kernel exploit. That makes mitigation coverage a concrete question for the eventual source release. It does not establish a complete jailbreak or an SPTM bypass. opa334’s earlier A12/A13 integration discussion remains separate from the exact support of the pending implementation.",
       "limits": [
         "The announcement is a release target, not a published exploit or a fixed jailbreak release date.",
-        "The source, final device/build matrix, and independent reproduction remain pending in this review.",
+        "MIE support is an author statement. No public implementation, mechanism, MIE-enabled device/build matrix, or independent reproduction has been verified in this review.",
         "The announcement does not establish that the upcoming exploit is the public AppleAVE2 temporal-layer PoC. Shared research credit does not establish an identical bug or primitive."
       ],
       "sources": [
+        {
+          "title": "Anna Groza explicitly claims MIE support",
+          "url": "https://x.com/pwnlambda/status/2117982989388796198",
+          "kind": "Original researcher statement, November 4"
+        },
         {
           "title": "Anna Groza’s release statement",
           "url": "https://x.com/pwnlambda/status/2117668187873448013",
@@ -32,17 +38,17 @@
           "kind": "Maintainer statement"
         }
       ],
-      "revision": "Original posts reviewed November 3, 2026. No public kernel exploit artifact verified in this review.",
+      "revision": "Original posts reviewed November 4, 2026, including the 06:11 Pacific MIE-support statement. No public kernel exploit artifact verified in this pass.",
       "project": "Calif kernel exploit",
-      "update": "Exploit and write-up targeted within roughly a week.",
+      "update": "Nov 4: author claims MIE support; public source still pending.",
       "capability": "Kernel read/write announced",
-      "trackerScope": "A12/A13 integration discussed; firmware ceiling pending",
+      "trackerScope": "A12/A13 integration discussed; MIE device/build scope pending",
       "artifact": "Announcement",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-04",
       "priority": 1,
-      "priorityNote": "opa334 describes a path to A12/A13 Dopamine support. Newer devices still need an SPTM bypass.",
+      "priorityNote": "The author now explicitly claims MIE support. The exact device/build matrix and public exploit remain pending.",
       "nextStep": "Public source and an exact support matrix.",
-      "reviewBasis": "Original researcher announcement; source release pending."
+      "reviewBasis": "Original researcher statements; MIE support attributed, source release and independent verification pending."
     },
     {
       "id": "calif-lockdown-update",
@@ -55,13 +61,15 @@
       "scope": "Reported iPhone 18 Pro; update sequence ends with iOS 27.2 displayed",
       "observed": [
         "Calif posted a three-minute video on November 3 captioned “Lockdown Mode helps, until it doesn’t.” The video shows tweak behavior, an update/reboot sequence, and the behavior returning afterward.",
-        "MacRumors reports the device as an iPhone 18 Pro and describes the initial delivery as a PDF accepted through AirDrop."
+        "MacRumors reports the device as an iPhone 18 Pro and describes the initial delivery as a PDF accepted through AirDrop.",
+        "On November 4, Calif researcher Stefan Esser said the team’s videos should not be assumed to use a single chain. He said vulnerability details would be withheld until fixes, a refusal to fix, or an unreasonable delay."
       ],
       "meaning": "Surviving an update can matter even when the original entry point has been patched. The observed sequence supports a persistence demonstration on the shown setup; it does not identify the mechanism that restores the behavior.",
       "limits": [
         "The video does not establish a fresh compromise of a stock device already running iOS 27.2.",
         "No public implementation, persistence mechanism, or complete support matrix was verified.",
-        "The public demo was reviewed through its visible sequence. It has not been independently reproduced here."
+        "The public demo was reviewed through its visible sequence. It has not been independently reproduced here.",
+        "Esser’s statement does not identify the individual bugs or map the stages across the videos. It does not establish which private stages will be included in the separately announced kernel-exploit release."
       ],
       "sources": [
         {
@@ -73,19 +81,24 @@
           "title": "MacRumors: delivery and device context",
           "url": "https://www.macrumors.com/2026/11/03/iphone-jailbreak-lockdown-mode/",
           "kind": "Secondary reporting"
+        },
+        {
+          "title": "Stefan Esser on multiple chains and disclosure conditions",
+          "url": "https://x.com/i0n1c/status/2117973684430451162",
+          "kind": "Calif researcher statement, November 4"
         }
       ],
-      "revision": "Video and reporting reviewed November 3, 2026.",
+      "revision": "Video and original public researcher statements reviewed through November 4, 2026. New disclosure statement posted at 05:34 Pacific.",
       "project": "Calif persistence demo",
-      "update": "Tweak behavior returns after an update and reboot.",
+      "update": "Nov 4: researcher says multiple chains; details remain withheld.",
       "capability": "Persistence shown in video",
       "trackerScope": "Reported iPhone 18 Pro; iOS 27.2 displayed",
       "artifact": "Video",
-      "reviewed": "2026-11-03",
+      "reviewed": "2026-11-04",
       "priority": 2,
-      "priorityNote": "Tweak behavior returns after an update to 27.2. A fresh compromise of 27.2 is not established.",
+      "priorityNote": "Esser says more than one chain is involved. Vulnerability details remain withheld under his stated disclosure conditions.",
       "nextStep": "Implementation details or independent reproduction.",
-      "reviewBasis": "Original demonstration reviewed; implementation unavailable."
+      "reviewBasis": "Original video and researcher clarification; implementation and independent reproduction unavailable."
     },
     {
       "id": "liter8-lab-updates",
