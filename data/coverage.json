@@ -2,17 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-06T01:12:41Z",
+      "checkedAt": "2026-11-06T04:06:00Z",
       "state": "partial",
-      "result": "No new kernel release confirmed in the sampled posts",
-      "scope": "Checked posts from cited researchers since November 4, plus a search for public releases. Release announcements are still treated as announcements. Repeat posts about AVE and an older DarkSword disclosure were left out. One public lead led to the November 2 backboardd review. That is a catch-up entry, not a new November 5 release. Searches are samples, not a complete check."
+      "result": "No qualifying new research found in sampled posts",
+      "scope": "We sampled a Latest search for cited researchers and a separate search for iOS exploit and release posts since November 5. A VideoToolbox post referred to research already tracked. These searches were bounded and do not cover all posts."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-06T01:12:41Z",
-      "state": "checked",
-      "result": "Six watched repositories unchanged; backboardd source added",
-      "scope": "The six existing repositories still match their reviewed commits and releases, and no review issues are open. Added the November 2 backboardd code at a pinned commit after reviewing the source, build files, disassembly for the exact build and the author’s test results. No downloaded PoC was run. The static-analysis notebook has no new commits."
+      "checkedAt": "2026-11-06T04:04:02Z",
+      "state": "partial",
+      "result": "Watched repositories match their reviewed baselines",
+      "scope": "All seven watched repositories match their reviewed commits and releases. No upstream review issues are open. Bounded searches for iOS exploit, proof of concept, jailbreak and kernel repositories found no qualifying new research. These searches do not cover all GitHub releases."
     }
   ]
 }
