@@ -2,24 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-06T01:12:41Z",
-      "state": "partial",
-      "result": "No new kernel release confirmed in the sampled posts",
-      "scope": "Checked posts from cited researchers since November 4, plus a search for public releases. Release announcements are still treated as announcements. Repeat posts about AVE and an older DarkSword disclosure were left out. One public lead led to the November 2 backboardd review. That is a catch-up entry, not a new November 5 release. Searches are samples, not a complete check."
-    },
-    {
-      "name": "Discord",
-      "checkedAt": "2026-11-06T01:12:41Z",
-      "state": "partial",
-      "result": "Four channel searches sampled; older releases left out",
-      "scope": "Reviewed eight link results in the general channel, an empty search in resources and two results in development, all in an overlapping date range. In the jailbreak channel, reviewed four pages, 100 of 111 results. Some reply context was missing, and the last page was not checked. Public repository and gist dates separated old releases from new claims. No private content is published."
+      "checkedAt": "2026-11-06T04:04:02Z",
+      "state": "blocked",
+      "result": "Chrome requires sign-in before we can check X",
+      "scope": "The researcher search redirected to the X sign-in page. We could not review posts or run the release search. The last successful sample remains November 6 at 01:12 UTC."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-06T01:12:41Z",
-      "state": "checked",
-      "result": "Six watched repositories unchanged; backboardd source added",
-      "scope": "The six existing repositories still match their reviewed commits and releases, and no review issues are open. Added the November 2 backboardd code at a pinned commit after reviewing the source, build files, disassembly for the exact build and the author’s test results. No downloaded PoC was run. The static-analysis notebook has no new commits."
+      "checkedAt": "2026-11-06T04:04:02Z",
+      "state": "partial",
+      "result": "Watched repositories match their reviewed baselines",
+      "scope": "All seven watched repositories match their reviewed commits and releases. No upstream review issues are open. Bounded searches for iOS exploit, proof of concept, jailbreak and kernel repositories found no qualifying new research. These searches do not cover all GitHub releases."
     }
   ]
 }

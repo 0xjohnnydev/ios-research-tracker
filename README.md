@@ -22,7 +22,7 @@ For a watched repository, update `data/upstream.json` only after reviewing the n
 
 ## Twice-daily research loop
 
-A local Codex research loop checks X, Discord, and GitHub at 08:00 and 20:00 Pacific. It follows public leads, inspects actual source, and publishes qualifying updates through passing pull requests. See [the review procedure](docs/review-loop.md). The local computer, app, and signed-in sessions must be available. Each source in `data/coverage.json` records a `state` of `checked`, `partial`, or `blocked`, shown on the home page and the coverage page. Blocked or incomplete source checks remain visible there.
+A local Codex research loop checks X and GitHub at 08:00 and 20:00 Pacific. It follows public leads, inspects actual source, and publishes qualifying updates through passing pull requests. See [the review procedure](docs/review-loop.md). The local computer, app, and signed-in sessions must be available. Each source in `data/coverage.json` records a `state` of `checked`, `partial`, or `blocked`, shown on the home page and the coverage page. Blocked or incomplete source checks remain visible there.
 
 The `Check upstream repositories` workflow runs at 03:23 and 15:23 UTC daily and supports manual dispatch. It checks the default-branch commit and newest published release for six repositories. Pre-releases count as published releases; drafts do not.
 
