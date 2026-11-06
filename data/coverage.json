@@ -2,17 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-06T04:06:00Z",
+      "checkedAt": "2026-11-06T13:08:17Z",
       "state": "partial",
       "result": "No qualifying new research found in sampled posts",
-      "scope": "We sampled a Latest search for cited researchers and a separate search for iOS exploit and release posts since November 5. A VideoToolbox post referred to research already tracked. These searches were bounded and do not cover all posts."
+      "scope": "We sampled recent posts from five researchers and a separate Latest search for iOS exploits and releases since November 5. The searches were bounded and do not cover all posts."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-06T04:04:02Z",
+      "checkedAt": "2026-11-06T13:08:17Z",
       "state": "partial",
       "result": "Watched repositories match their reviewed baselines",
-      "scope": "All seven watched repositories match their reviewed commits and releases. No upstream review issues are open. Bounded searches for iOS exploit, proof of concept, jailbreak and kernel repositories found no qualifying new research. These searches do not cover all GitHub releases."
+      "scope": "All seven watched repositories match their reviewed commits and releases. No upstream review issues are open. We sampled new and updated repositories and release leads since November 5. The searches do not cover all GitHub releases."
     }
   ]
 }
