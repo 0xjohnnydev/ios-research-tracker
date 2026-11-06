@@ -400,6 +400,55 @@
       "reviewed": "2026-11-03",
       "reviewBasis": "Raw crash evidence withheld; CVE assignment remains tentative.",
       "held": true
+    },
+    {
+      "id": "coremedia-backboardd",
+      "date": "2026-11-02",
+      "type": "poc",
+      "status": "Public PoC",
+      "topic": "CoreMedia / backboardd",
+      "cve": "CVE-2026-112688",
+      "project": "CoreMedia · backboardd",
+      "update": "Controlled daemon corruption; constrained write-1 evidence.",
+      "capability": "Controlled return-address corruption; limited write-1 evidence",
+      "trackerScope": "iPhone19,4 · iOS 27.1 (24A94425)",
+      "artifact": "Source + crash evidence",
+      "reviewed": "2026-11-05",
+      "title": "CoreMedia PoC corrupts the iPhone display service.",
+      "dek": "The November 2 source release includes controlled return-address corruption and evidence of a constrained byte write in backboardd, the iPhone display service. Pointer authentication blocks the return-address attempt.",
+      "scope": "Supplied evidence: iPhone19,4 (iPhone Duo), iOS 27.1 (24A94425); exact QuartzCore image identified",
+      "observed": [
+        "The published app and payload generator implement malformed Dolby Vision metadata delivery through CoreAnimation into backboardd, the iPhone display service. Both the implementation and supporting artifacts are public.",
+        "The retained crash identifies launchd-owned backboardd on build 24A94425. Its saved return address contains the chosen repeated-byte value. Pointer authentication, which checks return addresses before use, stops execution at the return instruction.",
+        "The separate operator receipt reports that the daemon survived a fixed-byte write request. A subsequent crash from the same PID contains the value 1 at the readback point. The zero control used a different daemon process, so this is not a same-process before-and-after measurement.",
+        "The release credits Ping-2o/duper-cves for initial fix-site research and quietvoid/dovi_tool for payload construction. Apple credits 정우 하 (@0xfa11babe) and Chris Bailey / Short Circuit for the CVE."
+      ],
+      "meaning": "This supplies stronger evidence than an unexplained daemon crash: attacker-chosen data reaches a saved return address, and a separate observation supports a tightly constrained write of the value 1. It remains a process-memory result. The published evidence does not complete a sandbox escape or jailbreak.",
+      "limits": [
+        "This review inspected source and supplied evidence. The PoC was not executed or independently reproduced.",
+        "The byte value is fixed at 1 and the destination remains within an existing 4 GB address range. The daemon-survival observation comes from a sanitized operator receipt; the zero control is from a different process.",
+        "No general memory read/write, code execution, pointer-authentication bypass, kernel access, or full jailbreak is demonstrated.",
+        "The repository describes CVE-2026-112688 as a likely function-level mapping. Apple lists the CoreMedia fix in iOS 27.2, but has not confirmed this exact parser mapping. The advisory’s wider impact statement is not a demonstrated PoC capability."
+      ],
+      "sources": [
+        {
+          "title": "Pinned app and payload-generator source",
+          "url": "https://github.com/0xjohnnydev/CVE-2026-112688-backboardd/tree/cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10",
+          "kind": "Original PoC source, published November 2"
+        },
+        {
+          "title": "Supplied crash records, receipts and exact-build disassembly",
+          "url": "https://github.com/0xjohnnydev/CVE-2026-112688-backboardd/tree/cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10/evidence",
+          "kind": "Author-supplied runtime evidence"
+        },
+        {
+          "title": "Apple’s iOS 27.2 security advisory",
+          "url": "https://support.apple.com/en-us/149230",
+          "kind": "Vendor advisory and original CVE attribution"
+        }
+      ],
+      "revision": "cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10 · source, build inputs, disassembly, three retained crashes and operator receipt reviewed November 5. Return-address crash SHA-256 matches its published receipt.",
+      "reviewBasis": "Pinned app and payload-generator source, build inputs, exact-build disassembly, supplied crash logs and operator receipt inspected. Source review only; no independent execution."
     }
   ]
 }
