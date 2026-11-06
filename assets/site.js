@@ -14,7 +14,7 @@ for (const time of document.querySelectorAll('time[data-ago]')) {
 (function markChanges() {
   const items = [...document.querySelectorAll('[data-sig]')];
   if (!items.length) return;
-  const key = 'ios-research-tracker:seen';
+  const key = 'ios-research-tracker:seen:v2'; // v2: entry wording was rewritten without research changes.
   const now = Date.now();
   const current = Object.fromEntries(items.map(item => [item.dataset.id, item.dataset.sig]));
   let saved = null;
@@ -35,44 +35,29 @@ for (const time of document.querySelectorAll('time[data-ago]')) {
 const form = document.querySelector('[data-filters]');
 if (form) {
   form.hidden = false;
-  const body = document.querySelector('.register-table tbody');
-  const rows = [...body.querySelectorAll('[data-entry]')];
-  const buttons = [...form.querySelectorAll('[data-filter]')];
+  const rows = [...document.querySelectorAll('[data-entry]')];
+  const groups = [...document.querySelectorAll('[data-group]')];
   const input = form.querySelector('input');
-  const sort = form.querySelector('[data-sort]');
   const empty = document.querySelector('[data-empty]');
-  const priorities = document.querySelector('[data-priorities]');
-  const params = new URLSearchParams(location.search);
-  let filter = buttons.some(button => button.dataset.filter === params.get('type')) ? params.get('type') : 'all';
-  input.value = params.get('q') || '';
-  sort.value = params.get('sort') === 'newest' ? 'newest' : 'relevance';
-  const order = {
-    relevance: (a, b) => a.dataset.rank - b.dataset.rank,
-    newest: (a, b) => b.dataset.date.localeCompare(a.dataset.date) || a.dataset.rank - b.dataset.rank,
-  };
+  input.value = new URLSearchParams(location.search).get('q') || '';
   function update() {
     const query = input.value.trim().toLocaleLowerCase();
     let count = 0;
     for (const row of rows) {
-      row.hidden = !((filter === 'all' || row.dataset.type === filter) && row.dataset.search.toLocaleLowerCase().includes(query));
+      row.hidden = !row.dataset.search.toLocaleLowerCase().includes(query);
       if (!row.hidden) count++;
     }
-    body.append(...[...rows].sort(order[sort.value]));
-    for (const button of buttons) button.setAttribute('aria-pressed', button.dataset.filter === filter);
+    for (const group of groups) group.hidden = !group.querySelector('[data-entry]:not([hidden])');
     empty.hidden = count !== 0;
-    if (priorities) priorities.hidden = filter !== 'all' || Boolean(query);
     document.querySelector('[data-results]').textContent = `${count} ${count === 1 ? 'entry' : 'entries'} shown.`;
     const next = new URL(location.href);
-    filter === 'all' ? next.searchParams.delete('type') : next.searchParams.set('type', filter);
     query ? next.searchParams.set('q', input.value.trim()) : next.searchParams.delete('q');
-    sort.value === 'newest' ? next.searchParams.set('sort', 'newest') : next.searchParams.delete('sort');
+    for (const old of ['type', 'sort']) next.searchParams.delete(old);
     history.replaceState(null, '', next);
   }
   form.addEventListener('submit', event => { event.preventDefault(); update(); });
   input.addEventListener('input', update);
-  sort.addEventListener('change', update);
-  for (const button of buttons) button.addEventListener('click', () => { filter = button.dataset.filter; update(); });
-  document.querySelector('[data-reset]').addEventListener('click', () => { filter = 'all'; input.value = ''; update(); input.focus(); });
+  document.querySelector('[data-reset]').addEventListener('click', () => { input.value = ''; update(); input.focus(); });
   document.addEventListener('keydown', event => {
     if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey) return;
     if (event.target.closest('input, textarea, select, [contenteditable]')) return;

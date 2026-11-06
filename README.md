@@ -2,7 +2,7 @@
 
 A static tracker for iOS jailbreak research, PoCs, demonstrations, and releases.
 
-The main view leads with the priority watch (entries with a `priority`, ranked for jailbreak relevance), then lists every accepted development with its stage, capability, target, and primary source. Each entry links to a full evidence record. Readers can filter, search, sort by date, and see what changed since their last visit. `feed.xml` publishes the register as an Atom feed.
+The main view is a compact list. Entries with a `priority` lead it as the Jailbreak watch, ranked for jailbreak relevance. The rest are grouped by `category` (jailbreaks and tools, exploit chains, kernel bugs, app sandbox, and files, images and messages), newest first, with a one-line explanation of each group. Each row shows a plain one-line `summary` of what the item is, its stage, date and primary source, and links to a full evidence record that also shows the latest update. Readers can search and see what changed since their last visit. `feed.xml` publishes the register as an Atom feed.
 
 ## Local use
 

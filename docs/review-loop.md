@@ -22,9 +22,15 @@ A specific original-researcher announcement, a substantive technical disclosure,
 
 Reject spam, duplicates, recycled releases presented as new, fake version support, README-only exploit claims, and source that does not implement its central claim. Keep plausible but unresolved items out of the main register. Use `held: true` and explain the exact missing evidence if an existing assessment needs to remain accessible. Record dismissed discovery leads locally to avoid re-reviewing unchanged material. Do not publicly label a person or repository as AI-generated based on writing style.
 
+## Writing
+
+Write every public field for a smart reader who is not a specialist. Use short sentences and the active voice, and put the result first. Define a specialist term the first time an entry uses it, for example MIE, SPTM, MTE, SEP or tfp0. Prefer plain words to compressed notation: write "device and build", not "device/build", and avoid chains of semicolons. Give each entry a `summary`: one plain sentence, under about 75 characters, that says what the item is for someone who has never heard of it. It is the line shown on the home page. Keep `update` to one short sentence about the latest change and `trackerScope` to a few words. Write "we" for this tracker's own review. Do not use em dashes. Plain wording must keep the same claims, attribution and limits.
+
 ## Update and publish
 
 Only add material changes to `data/notes.json`. Each entry needs a short update, exact scope, an honest capability, an explicit `reviewBasis`, observations, limitations, public primary sources, and the reviewed commit or artifact. Update an existing item instead of creating duplicate entries for the same result.
+
+Set each entry's `category` to `tools` (released jailbreaks and research setups), `chains` (demos that link several bugs into a full attack), `kernel`, `sandbox` (an app getting past its sandbox or permissions) or `input` (bugs set off by opening a file, image, video or link). The home page groups entries by category after the ranked jailbreak watch.
 
 Rank by practical jailbreak relevance and demonstrated capability. A credible announced kernel exploit can lead the watchlist while its status remains announced. Keep low-evidence items outside the main register. Do not manufacture numerical confidence scores.
 

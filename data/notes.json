@@ -5,128 +5,133 @@
       "id": "calif-kernel-release",
       "date": "2026-11-03",
       "type": "announced",
+      "category": "kernel",
       "status": "Release announced",
       "topic": "Calif / kernel research",
-      "title": "Calif kernel exploit: author claims MIE support.",
-      "dek": "Anna Groza says the planned kernel exploit supports Memory Integrity Enforcement (MIE). Public source, exact device/build coverage, and independent verification remain pending.",
-      "scope": "A12/A13 integration discussed; MIE support claimed, final device/build matrix pending",
+      "title": "Calif kernel exploit: the author says it supports MIE.",
+      "dek": "Anna Groza says her upcoming kernel exploit works with Memory Integrity Enforcement (MIE), Apple’s newest memory protections. The code, the exact supported devices and iOS builds, and any independent check are still pending.",
+      "scope": "opa334 has discussed Dopamine support on A12/A13. The author says MIE is supported but has not listed the exact devices or builds.",
       "observed": [
-        "Anna Groza (@pwnlambda) said on November 3 that she is aiming to release the iOS kernel read/write exploit and write-up within roughly a week.",
-        "opa334 separately said he expects to extend Dopamine to the exploit’s supported versions on A12/A13 using momentarius. He said A14 and newer still need an SPTM bypass.",
-        "On November 4, Anna Groza said the planned release is a working exploit with MIE support. The statement repeats an approximately one-week wait; it does not publish the implementation or an exact support matrix."
+        "On November 3, Anna Groza (@pwnlambda) said she aims to release the iOS kernel read/write exploit and a write-up in about a week.",
+        "opa334 said separately that he expects to bring Dopamine, his jailbreak, to the exploit’s supported versions on A12/A13 devices using momentarius. He said A14 and newer still need a way past SPTM.",
+        "On November 4, she said the planned release is a working exploit with MIE support. She repeated the wait of about a week. She did not publish the code or a list of supported devices and builds."
       ],
-      "meaning": "The original researcher has now made MIE support an explicit claim for the planned kernel exploit. That makes mitigation coverage a concrete question for the eventual source release. It does not establish a complete jailbreak or an SPTM bypass. opa334’s earlier A12/A13 integration discussion remains separate from the exact support of the pending implementation.",
+      "meaning": "The researcher now says outright that the planned exploit works with MIE. When the code comes out, the first question is which protected devices it really covers. A kernel exploit alone is not a full jailbreak, and the claim does not include a way past SPTM (Secure Page Table Monitor), which guards memory above the kernel. opa334’s earlier comments about A12/A13 support are separate from what this exploit will actually support.",
       "limits": [
-        "The announcement is a release target, not a published exploit or a fixed jailbreak release date.",
-        "MIE support is an author statement. No public implementation, mechanism, MIE-enabled device/build matrix, or independent reproduction has been verified in this review.",
-        "The announcement does not establish that the upcoming exploit is the public AppleAVE2 temporal-layer PoC. Shared research credit does not establish an identical bug or primitive."
+        "This is a release plan. It is not a published exploit or a jailbreak release date.",
+        "MIE support is the author’s claim. We have not seen code, an explanation of how it works, a list of MIE devices and builds, or an independent reproduction.",
+        "Nothing shows that the coming exploit is the public AppleAVE2 temporal-layer PoC. Shared research credit does not mean they use the same bug or technique."
       ],
       "sources": [
         {
-          "title": "Anna Groza explicitly claims MIE support",
+          "title": "Anna Groza says the exploit supports MIE",
           "url": "https://x.com/pwnlambda/status/2117982989388796198",
-          "kind": "Original researcher statement, November 4"
+          "kind": "Researcher post, November 4"
         },
         {
-          "title": "Anna Groza’s release statement",
+          "title": "Anna Groza’s release plan",
           "url": "https://x.com/pwnlambda/status/2117668187873448013",
-          "kind": "Researcher statement"
+          "kind": "Researcher post"
         },
         {
-          "title": "opa334 on Dopamine integration and the remaining SPTM barrier",
+          "title": "opa334 on Dopamine support and the SPTM barrier",
           "url": "https://infosec.exchange/@opa334/117553947632435234",
-          "kind": "Maintainer statement"
+          "kind": "Developer post"
         }
       ],
-      "revision": "Original posts reviewed November 4, 2026, including the 06:11 Pacific MIE-support statement. No public kernel exploit artifact verified in this pass.",
+      "revision": "Original posts reviewed November 4, 2026, including the MIE post at 06:11 Pacific. No public exploit code was found in this review.",
       "project": "Calif kernel exploit",
-      "update": "Nov 4: author claims MIE support; public source still pending.",
-      "capability": "Kernel read/write announced",
-      "trackerScope": "A12/A13 integration discussed; MIE device/build scope pending",
+      "summary": "A researcher has announced a working kernel exploit. The code is not out yet.",
+      "update": "Nov 4: The author says it supports MIE. No code yet.",
+      "capability": "Kernel read/write, announced",
+      "trackerScope": "Dopamine on A12/A13 discussed; MIE devices not listed",
       "artifact": "Announcement",
       "reviewed": "2026-11-04",
       "priority": 1,
-      "priorityNote": "The author now explicitly claims MIE support. The exact device/build matrix and public exploit remain pending.",
-      "nextStep": "Public source and an exact support matrix.",
-      "reviewBasis": "Original researcher statements; MIE support attributed, source release and independent verification pending."
+      "priorityNote": "The author now says the exploit supports MIE. The exact devices, builds and code are not public yet.",
+      "nextStep": "Public code and a list of supported devices and builds.",
+      "reviewBasis": "The researcher’s own posts. MIE support is her claim. The code and any independent check are pending."
     },
     {
       "id": "calif-lockdown-update",
       "date": "2026-11-03",
       "type": "demo",
+      "category": "chains",
       "status": "Private demonstration",
       "topic": "Calif / persistence",
-      "title": "A Lockdown Mode demo continues through an iOS update.",
-      "dek": "Calif’s new video shows tweak behavior returning after an update and reboot, with iOS 27.2 displayed. Persistence and a fresh compromise of 27.2 remain separate claims.",
-      "scope": "Reported iPhone 18 Pro; update sequence ends with iOS 27.2 displayed",
+      "title": "A Calif demo survives an iOS update in Lockdown Mode.",
+      "dek": "Calif’s new video shows a tweak still working after an iOS update and restart, with iOS 27.2 on screen. Surviving an update is a different claim from breaking into a phone that already runs 27.2.",
+      "scope": "iPhone 18 Pro, according to MacRumors. The update ends with iOS 27.2 on screen.",
       "observed": [
-        "Calif posted a three-minute video on November 3 captioned “Lockdown Mode helps, until it doesn’t.” The video shows tweak behavior, an update/reboot sequence, and the behavior returning afterward.",
-        "MacRumors reports the device as an iPhone 18 Pro and describes the initial delivery as a PDF accepted through AirDrop.",
-        "On November 4, Calif researcher Stefan Esser said the team’s videos should not be assumed to use a single chain. He said vulnerability details would be withheld until fixes, a refusal to fix, or an unreasonable delay.",
-        "In a November 4 public post, Stefan Esser said AirDrop was chosen to open the PDF in Preview. He said Preview has Memory Tagging Extension (MTE) enabled when Lockdown Mode is active. This is a researcher explanation of the demonstrated process configuration."
+        "On November 3, Calif posted a three-minute video captioned “Lockdown Mode helps, until it doesn’t.” It shows a tweak working, the phone updating and restarting, and the tweak working again.",
+        "MacRumors reports that the phone is an iPhone 18 Pro and that the attack starts with a PDF accepted over AirDrop.",
+        "On November 4, Calif researcher Stefan Esser said not to assume the team’s videos all use one exploit chain. He said bug details will stay private until a fix ships, a fix is refused, or a fix takes unreasonably long.",
+        "In a public post the same day, Esser said they chose AirDrop so the PDF would open in Preview. He said Preview runs with Memory Tagging Extension (MTE), a hardware check that catches many memory bugs, when Lockdown Mode is on. This is his explanation of the demo setup, not something we measured."
       ],
-      "meaning": "Surviving an update can matter even when the original entry point has been patched. The observed sequence supports a persistence demonstration on the shown setup; it does not identify the mechanism that restores the behavior.",
+      "meaning": "Surviving an update matters because the bug used to get in may already be fixed. The video supports a persistence demo on the device shown. It does not show how the tweak comes back after the update.",
       "limits": [
-        "The video does not establish a fresh compromise of a stock device already running iOS 27.2.",
-        "No public implementation, persistence mechanism, or complete support matrix was verified.",
-        "The public demo was reviewed through its visible sequence. It has not been independently reproduced here.",
-        "Esser’s statement does not identify the individual bugs or map the stages across the videos. It does not establish which private stages will be included in the separately announced kernel-exploit release.",
-        "The Preview MTE activation policy is attributed to Esser. This review did not independently inspect the process configuration or reproduce the exploit, and the statement does not establish that all iOS processes use the same policy."
+        "The video does not show a fresh attack on a stock phone that already runs iOS 27.2.",
+        "We have not seen public code, how the tweak survives the update, or a full list of supported devices.",
+        "We watched the public video. Nobody has reproduced it independently.",
+        "Esser’s post does not name the bugs or say which steps appear in which video. It does not say which private steps will be in the separately announced kernel exploit release.",
+        "The claim that Preview runs with MTE comes from Esser. We did not check Preview’s settings or reproduce the exploit. The post also does not say that every iOS process uses the same setting."
       ],
       "sources": [
         {
-          "title": "Calif’s original Lockdown Mode video",
+          "title": "Calif’s Lockdown Mode video",
           "url": "https://x.com/calif_io/status/2117720348322144733",
-          "kind": "Primary demonstration"
+          "kind": "Original demo video"
         },
         {
-          "title": "MacRumors: delivery and device context",
+          "title": "MacRumors on the delivery and device",
           "url": "https://www.macrumors.com/2026/11/03/iphone-jailbreak-lockdown-mode/",
-          "kind": "Secondary reporting"
+          "kind": "News report"
         },
         {
-          "title": "Stefan Esser on multiple chains and disclosure conditions",
+          "title": "Stefan Esser on multiple chains and disclosure",
           "url": "https://x.com/i0n1c/status/2117973684430451162",
-          "kind": "Calif researcher statement, November 4"
+          "kind": "Calif researcher post, November 4"
         },
         {
-          "title": "Stefan Esser explains AirDrop, Preview, and Lockdown Mode MTE",
+          "title": "Stefan Esser on AirDrop, Preview and MTE",
           "url": "https://x.com/i0n1c/status/2117942043225829845",
-          "kind": "Original researcher explanation, November 4"
+          "kind": "Calif researcher post, November 4"
         }
       ],
-      "revision": "Original video and public researcher statements reviewed through November 5, 2026. Preview/MTE explanation published November 4.",
+      "revision": "Original video and researcher posts reviewed through November 5, 2026. The Preview and MTE explanation was posted November 4.",
       "project": "Calif persistence demo",
-      "update": "Researcher clarifies Preview’s MTE configuration in Lockdown Mode.",
-      "capability": "Persistence shown in video",
-      "trackerScope": "Reported iPhone 18 Pro; iOS 27.2 displayed",
+      "summary": "A video shows a tweak surviving an iOS update in Lockdown Mode. Code is private.",
+      "update": "Researcher says Preview runs with MTE on in Lockdown Mode.",
+      "capability": "Persistence, shown in video",
+      "trackerScope": "iPhone 18 Pro (reported); iOS 27.2 on screen",
       "artifact": "Video",
       "reviewed": "2026-11-05",
       "priority": 2,
-      "priorityNote": "Esser says AirDrop was chosen to open Preview with MTE enabled in Lockdown Mode. The chain remains private.",
-      "nextStep": "Implementation details or independent reproduction.",
-      "reviewBasis": "Original video and attributed researcher explanations; process configuration and exploit not independently verified."
+      "priorityNote": "Esser says they used AirDrop so the file would open in Preview, which runs with MTE in Lockdown Mode. The exploit chain is still private.",
+      "nextStep": "Technical details or an independent reproduction.",
+      "reviewBasis": "The original video and the researchers’ own explanations. We have not checked Preview’s settings or the exploit ourselves."
     },
     {
       "id": "liter8-lab-updates",
       "date": "2026-11-02",
       "type": "released",
+      "category": "tools",
       "status": "Public release",
       "topic": "Liter8 / tethered research setup",
-      "title": "Liter8 becomes a more useful iPhone 11 lab.",
-      "dek": "Version 0.2.3 adds persistent Wi-Fi credentials and SFTP. The preceding release added optional kernel-task access. The tethered boot and hardware limits still define the project.",
-      "scope": "Base iPhone 11 (n104ap); documented builds through iOS 27.2 24B119",
+      "title": "Liter8 becomes a more useful iPhone 11 research setup.",
+      "dek": "Version 0.2.3 keeps Wi-Fi passwords across restarts and adds SFTP file transfer. The previous release added optional kernel memory access. It still needs a computer attached at every boot and is only tested on the base iPhone 11.",
+      "scope": "Base iPhone 11 (n104ap). Documented up to iOS 27.2 (24B119).",
       "observed": [
-        "v0.2.3 adds SFTP/SCP in normal boot and Wi-Fi password persistence across reboots without SEP.",
-        "v0.2.2 added an optional tfp0 boot patch. Published run notes document kernel reads and writes to a scratch allocation on 27.2 build 24B119, including a repeat boot.",
-        "The current README labels the base iPhone 11 as tested. The 11 Pro and Pro Max profiles remain experimental despite the broader wording in the release notes."
+        "v0.2.3 adds SFTP and SCP file transfer in normal boot. Wi-Fi passwords now survive restarts, even though the setup runs without the Secure Enclave (SEP), the security chip that handles keys and passcodes.",
+        "v0.2.2 added an optional tfp0 boot patch, which gives direct access to kernel memory. The author’s test notes show kernel reads and writes to a scratch area of memory on iOS 27.2 (24B119), including after a second boot.",
+        "The README lists only the base iPhone 11 as tested. The 11 Pro and Pro Max are still experimental, even though the release notes word it more broadly."
       ],
-      "meaning": "The published code and run notes make this useful as a specialized research environment. Kernel access comes from a patched boot workflow built on usbliter8; it does not demonstrate a new app-to-kernel exploit on a stock running system.",
+      "meaning": "The published code and test notes make this a useful, specialized research setup. Kernel access comes from patching the boot process with usbliter8. It is not a new exploit that gets from an app to the kernel on a normal, running phone.",
       "limits": [
-        "Every boot requires the tethered Mac/DFU workflow. Setup includes an erase restore.",
-        "SEP, passcode, and cellular data remain documented limitations. Calls and SMS rely on Wi-Fi Calling in the described setup.",
-        "The published write test uses scratch kernel memory. It does not establish writes to SPTM-protected memory.",
-        "Source and supplied run notes were reviewed; this setup has not been independently run here."
+        "Every boot needs a Mac and DFU mode, a low-level recovery mode. Setup erases and restores the phone.",
+        "The Secure Enclave, passcode and cellular data still do not work, as documented. Calls and texts go through Wi-Fi Calling in this setup.",
+        "The published write test only touches scratch memory. It does not show writes to memory protected by SPTM.",
+        "We read the source and the author’s test notes. We have not run this setup ourselves."
       ],
       "sources": [
         {
@@ -135,320 +140,335 @@
           "kind": "Release"
         },
         {
-          "title": "Current support and limitations at reviewed revision",
+          "title": "Supported devices and limits at the reviewed commit",
           "url": "https://github.com/Xplo8E/Liter8/blob/fd46d747ec89ff39dd492620101f2c41e6b096c4/README.md",
-          "kind": "Maintainer documentation"
+          "kind": "Developer documentation"
         },
         {
-          "title": "Exact-build kernel-access run notes",
+          "title": "Kernel access test notes for the exact build",
           "url": "https://github.com/Xplo8E/Liter8/blob/fd46d747ec89ff39dd492620101f2c41e6b096c4/docs/runs/IOS_27_24A446_TFP0.md",
-          "kind": "Supplied runtime evidence"
+          "kind": "Author’s test results"
         }
       ],
-      "revision": "fd46d747ec89ff39dd492620101f2c41e6b096c4 · v0.2.3. Release date shown in Pacific time.",
+      "revision": "Commit fd46d747ec89ff39dd492620101f2c41e6b096c4, release v0.2.3. The release date is shown in Pacific time.",
       "project": "Liter8",
-      "update": "v0.2.3: Wi-Fi credentials persist; SFTP/SCP added.",
-      "capability": "Patched boot; kernel access",
-      "trackerScope": "iPhone 11 only; builds through 27.2 (24B119)",
+      "summary": "A released tool that boots an iPhone 11 from a Mac with kernel access.",
+      "update": "v0.2.3 keeps Wi-Fi passwords and adds SFTP and SCP.",
+      "capability": "Patched boot with kernel access",
+      "trackerScope": "iPhone 11 only, up to iOS 27.2 (24B119)",
       "artifact": "Release v0.2.3",
       "reviewed": "2026-11-03",
       "priority": 3,
-      "priorityNote": "A released, tethered iPhone 11 research setup. v0.2.3 adds persistent Wi-Fi credentials and SFTP.",
-      "nextStep": "Expanded SEP, passcode, or cellular support.",
-      "reviewBasis": "Source, release notes, and exact-build run notes reviewed."
+      "priorityNote": "A released iPhone 11 research setup that boots with a computer attached. v0.2.3 keeps Wi-Fi passwords and adds SFTP.",
+      "nextStep": "Support for the Secure Enclave, the passcode or cellular data.",
+      "reviewBasis": "Source code, release notes and the author’s test notes for the exact build."
     },
     {
       "id": "rawcamera-canon",
       "date": "2026-11-02",
       "type": "poc",
+      "category": "input",
       "status": "Public PoC",
       "topic": "ImageIO / RawCamera",
       "cve": "CVE-2026-64750",
-      "title": "A Canon RAW decoder walks backward out of its pixel buffer.",
-      "dek": "Project Zero’s report connects a signed geometry-check failure to a negative row step, with a crafted image and debugger evidence. The iOS 27 branch is already fixed.",
-      "scope": "Published runtime evidence: macOS 26.6.2 (25G83), arm64e",
+      "title": "A Canon RAW decoder writes backward past its pixel buffer.",
+      "dek": "Project Zero shows how a bad size check makes the decoder write image data below its buffer. The report includes a crafted image and debugger output. The iOS 27 line is already fixed.",
+      "scope": "Published test: macOS 26.6.2 (25G83), arm64e",
       "observed": [
-        "A malformed Canon sRAW image passes a signed arithmetic check. A separate unchecked component count produces a negative destination-row step.",
-        "The decoder then writes file-derived chroma samples backward below the pixel allocation. The report ties debugger observations and the crash address to the affected store.",
-        "The report supplies a crafted CR2 file and identifies the unmodified input as a working control."
+        "A malformed Canon sRAW image passes a size check that uses signed math. A separate, unchecked count then makes the decoder step backward through rows instead of forward.",
+        "The decoder then writes color data from the file backward, below the start of the pixel buffer. The report matches debugger output and the crash address to that write.",
+        "The report includes a crafted CR2 file and names the original, unmodified file as a working control."
       ],
-      "meaning": "The published effect is a linear out-of-bounds write with file-influenced contents and an allocation-relative destination. The report assesses code-execution risk, but its published runtime result is a corruption reproduction, not a complete execution chain.",
+      "meaning": "The write runs in a straight line below the buffer. The image file influences the bytes written, and the location depends on where the buffer sits in memory. The report says this could risk code execution, but its published result is memory corruption, not a full attack chain.",
       "limits": [
-        "Project Zero reports this fixed in macOS/iOS 27. Apple also lists the older-branch fix in iOS 26.7.2.",
-        "This does not supply an entry point for iOS 27.0.1 or 27.2.",
-        "The exact public reproduction is on a Mac. An equivalent iPhone delivery path and exploit chain have not been established by this review."
+        "Project Zero reports this fixed in macOS and iOS 27. Apple also lists a fix for the older line in iOS 26.7.2.",
+        "This is not a way into iOS 27.0.1 or 27.2.",
+        "The public test ran on a Mac. We have not seen an equivalent way to deliver it on iPhone, or an exploit chain."
       ],
       "sources": [
         {
-          "title": "Project Zero report and PoC attachment",
+          "title": "Project Zero report and PoC file",
           "url": "https://project-zero.issues.chromium.org/issues/552300026",
-          "kind": "Original vulnerability report"
+          "kind": "Original bug report"
         },
         {
-          "title": "Apple’s iOS 26.7.2 security advisory",
+          "title": "Apple’s iOS 26.7.2 security notes",
           "url": "https://support.apple.com/en-us/149227",
-          "kind": "Vendor advisory"
+          "kind": "Apple advisory"
         }
       ],
-      "revision": "Original report and disclosure feed reviewed November 3, 2026. Disclosure date is distinct from the earlier fix date.",
+      "revision": "Original report and disclosure feed reviewed November 3, 2026. The report went public after the earlier fix shipped.",
       "project": "RawCamera · Canon sRAW",
-      "update": "Newly public report; the iOS 27 branch is already fixed.",
-      "capability": "Out-of-bounds buffer write",
-      "trackerScope": "macOS 26.6.2 (25G83) tested; fixed in iOS 27",
+      "summary": "A crafted Canon RAW photo corrupts memory when opened. Fixed in iOS 27.",
+      "update": "Newly public report. Already fixed in iOS 27.",
+      "capability": "Out-of-bounds write",
+      "trackerScope": "Tested on macOS 26.6.2 (25G83); fixed in iOS 27",
       "artifact": "Report + PoC",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Original report includes a trigger, control, and debugger measurements."
+      "reviewBasis": "The original report, with a trigger file, a working control file and debugger measurements."
     },
     {
       "id": "rawcamera-phase-one",
       "date": "2026-11-02",
       "type": "poc",
+      "category": "input",
       "status": "Public PoC",
       "topic": "ImageIO / RawCamera",
       "cve": "CVE-2026-65395",
-      "title": "A RAW-image correction loop runs beyond the allocation.",
-      "dek": "A Phase One decoder trusts a file-supplied correction length. A one-tag control and measured fault make the new Project Zero disclosure particularly useful to study.",
-      "scope": "Published runtime evidence: macOS 26.6.2 (25G83), arm64e",
+      "title": "A RAW image correction loop runs past its buffer.",
+      "dek": "A Phase One decoder trusts a length taken from the file. The new Project Zero report is easy to study because it includes a control file that differs by one tag, plus the measured crash.",
+      "scope": "Published test: macOS 26.6.2 (25G83), arm64e",
       "observed": [
-        "One segment of a flat-field correction loop lacks the row-width bound enforced on the neighboring segment.",
-        "The file influences both the loop extent and a per-row correction value. The effect is a constrained 16-bit read-modify-write that can extend beyond the decoded pixel allocation.",
-        "The report supplies a crashing IIQ image and a control differing in a single tag, alongside loop measurements and an allocation-boundary fault."
+        "One part of a flat-field correction loop, a step that evens out brightness across the sensor, is missing the row-width limit that the next part enforces.",
+        "The file influences both how far the loop runs and the correction value for each row. The result is a limited 16-bit read-and-update that can run past the end of the decoded image buffer.",
+        "The report includes a crashing IIQ image and a control file that differs by a single tag, with loop measurements and a crash at the edge of the buffer."
       ],
-      "meaning": "The control isolates the missing bound more clearly than a standalone crash. This is credible public memory-corruption research. Freely chosen bytes, an arbitrary destination, and completed code execution are not established by the published reproduction.",
+      "meaning": "The control file shows exactly which missing check causes the bug, which is more useful than a crash alone. This is credible public memory-corruption research. The published test does not show freely chosen bytes, a chosen target address or code execution.",
       "limits": [
-        "Apple lists the issue as fixed in iOS 26.7 and the iOS 27 branch.",
-        "Newly public technical detail does not make this a new unpatched iOS 27 entry point.",
-        "The supplied exact-build runtime evidence is on macOS; no independent iPhone reproduction was performed here."
+        "Apple lists the bug as fixed in iOS 26.7 and the iOS 27 line.",
+        "New technical detail does not make this a new, unpatched way into iOS 27.",
+        "The test results for the exact build come from macOS. We did not reproduce it on an iPhone."
       ],
       "sources": [
         {
-          "title": "Project Zero report, trigger, and control",
+          "title": "Project Zero report, trigger and control files",
           "url": "https://project-zero.issues.chromium.org/issues/552305156",
-          "kind": "Original vulnerability report"
+          "kind": "Original bug report"
         },
         {
-          "title": "Apple’s iOS 26.7 security advisory",
+          "title": "Apple’s iOS 26.7 security notes",
           "url": "https://support.apple.com/en-us/149041",
-          "kind": "Vendor advisory"
+          "kind": "Apple advisory"
         }
       ],
       "revision": "Original report and disclosure feed reviewed November 3, 2026.",
       "project": "RawCamera · Phase One",
-      "update": "Trigger/control pair isolates a missing row-width check.",
-      "capability": "16-bit read-modify-write overflow",
-      "trackerScope": "macOS 26.6.2 (25G83) tested; fixed in iOS 27",
+      "summary": "A crafted Phase One RAW photo corrupts memory when opened. Fixed in iOS 27.",
+      "update": "A matched test file pins down a missing row-width check.",
+      "capability": "Limited 16-bit overflow",
+      "trackerScope": "Tested on macOS 26.6.2 (25G83); fixed in iOS 27",
       "artifact": "Report + PoC",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Original report includes a one-tag control and measured overflow."
+      "reviewBasis": "The original report, with a control file that differs by one tag and a measured overflow."
     },
     {
       "id": "linkpresentation-heic",
       "date": "2026-10-30",
       "type": "poc",
+      "category": "input",
       "status": "Public PoC",
       "topic": "LinkPresentation / Messages",
       "cve": "CVE-2026-112621",
-      "title": "A link preview draws a later frame into an earlier frame’s buffer.",
-      "dek": "A detailed report connects received-link delivery to an out-of-bounds clear and draw. Neighboring-buffer writes add substance beyond the crash, with destination control still limited.",
-      "scope": "Detailed reproduction: macOS 26.7 (25G229); iPhone testing also reported",
+      "title": "A link preview draws a later image frame into a buffer sized for the first.",
+      "dek": "A detailed report traces a link received in Messages to writes outside an image buffer. It shows nearby memory being overwritten, not just a crash, but there is little control over where the writes land.",
+      "scope": "Detailed test: macOS 26.7 (25G229). The author also reports iPhone tests.",
       "observed": [
-        "LinkPresentation sizes a pixel buffer from the first image frame, then uses a later decoded frame’s dimensions for drawing.",
-        "The report documents an out-of-bounds clear, image-content writes, and changes to a neighboring live IOSurface. It also includes controls and a patched-build comparison.",
-        "Received-link testing reaches the affected transcoder after the recipient loads the Messages preview. Source was published October 29; the detailed report followed October 30."
+        "LinkPresentation sizes a pixel buffer from the first frame of an image, then draws using the size of a later frame.",
+        "The report shows writes outside the buffer: a clear, image data, and changes to a neighboring IOSurface (a shared graphics buffer) that was in use. It also includes control files and a comparison with the patched build.",
+        "When tested with a received link, the bug triggers after the recipient loads the preview in Messages. The source was published October 29 and the detailed report October 30."
       ],
-      "meaning": "This is a strong public disclosure because it connects external delivery, a specific allocation mistake, and measured corruption. The input influences the overflow and contents; allocation layout determines the neighboring target.",
+      "meaning": "This is a strong public report. It connects delivery from outside the device, a specific sizing mistake and measured memory damage. The file influences how far the write goes and what it writes. Memory layout decides which neighboring buffer gets hit.",
       "limits": [
-        "No arbitrary-address write or code-execution chain is published.",
-        "The reported Messages trigger requires loading the preview. It should not be presented as a demonstrated zero-click chain.",
-        "The most detailed build/process evidence is from macOS. Do not transfer its privileges or mitigation behavior to iPhone without matched evidence.",
+        "No write to a chosen address and no code execution chain is published.",
+        "The Messages trigger needs the preview to load. It should not be called a proven zero-click attack, meaning one that needs no action from the victim.",
+        "The most detailed evidence about the build and process comes from macOS. Do not assume the same privileges or protections on iPhone without matching evidence.",
         "Apple lists fixes in iOS 26.7.2 and 27.2."
       ],
       "sources": [
         {
-          "title": "Appknox’s technical report by Vinay Kumar Rasala",
+          "title": "Appknox technical report by Vinay Kumar Rasala",
           "url": "https://www.appknox.com/blog/cve-2026-112621-how-a-link-preview-could-crash-apple-messages",
           "kind": "Researcher write-up"
         },
         {
-          "title": "Published generator source",
+          "title": "File generator source",
           "url": "https://github.com/Xplo8E/CVE-2026-112621-oob-write-poc/tree/c514d0e4b46ab0b5af9a488d7e81e7d50278bb7c",
           "kind": "PoC source"
         }
       ],
-      "revision": "c514d0e4b46ab0b5af9a488d7e81e7d50278bb7c · default-branch head unchanged at November 3 review.",
+      "revision": "Commit c514d0e4b46ab0b5af9a488d7e81e7d50278bb7c. No new commits as of the November 3 review.",
       "project": "LinkPresentation · HEIC",
-      "update": "Received-link preview reaches a mismatched image buffer.",
-      "capability": "Neighboring-buffer corruption",
-      "trackerScope": "macOS 26.7 (25G229) detailed; iPhone tests reported",
+      "summary": "A link sent in Messages can corrupt memory when its preview loads. Fixed in iOS 27.2.",
+      "update": "A received link’s preview writes into a buffer that is too small.",
+      "capability": "Overwrites a neighboring buffer",
+      "trackerScope": "Detailed on macOS 26.7 (25G229); iPhone tests reported",
       "artifact": "Source + report",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Generator source and measured neighboring-buffer corruption documented."
+      "reviewBasis": "Source code for the file generator and measured overwrites of a neighboring buffer."
     },
     {
       "id": "ave-temporal-layers",
       "date": "2026-10-30",
       "type": "poc",
+      "category": "kernel",
       "status": "Public crash PoC",
       "topic": "AppleAVE2 / kernel",
       "cve": "CVE-2026-112705",
-      "title": "The public AVE reproduction reaches a kernel fault.",
-      "dek": "Concrete encoding calls and a supplied panic support a crash reproduction. Useful kernel access and mitigation bypasses remain unproven.",
-      "scope": "Supplied panic: iPhone18,1, iOS 27.0.1 (24A446), T8150",
+      "title": "A public AVE reproduction crashes the kernel.",
+      "dek": "Specific video-encoding calls and a crash log from a real device support a kernel crash. Useful kernel access and any way past Apple’s protections are still unproven.",
+      "scope": "Crash log from iPhone18,1 (T8150), iOS 27.0.1 (24A446)",
       "observed": [
-        "The app sets an oversized temporal-layer count through VideoToolbox and submits an encoding frame. The supplied panic identifies videocodecd and AppleAVE2.",
-        "The author describes the corruption as a fixed-offset constant fill, with no arbitrary kernel read/write. The README supplies a surviving input control and reports API rejection on iOS 27.2.",
-        "The author credits the original Calif/Chollima discovery and presents this project as a reproduction."
+        "The app sets an oversized temporal-layer count through VideoToolbox, Apple’s video framework, and submits a frame to encode. The crash log names videocodecd and AppleAVE2, the video encoder driver.",
+        "The author describes the damage as a fixed value written at a fixed offset, with no arbitrary kernel read or write. The README includes an input that does not crash as a control, and says iOS 27.2 rejects the call.",
+        "The author credits the original discovery to Calif/Chollima and presents this project as a reproduction."
       ],
-      "meaning": "The privileged fault makes this relevant to kernel research. A restricted write can be useful, but the public artifact does not identify a useful repeatable state change that execution survives.",
+      "meaning": "A crash in the kernel’s video encoder driver makes this relevant to kernel research. A limited write can be useful, but the public code does not show a repeatable, useful change to memory that the system survives.",
       "limits": [
-        "The faulting instruction’s offset, AppleAVE2 +0xDA78, locates the crash. It does not establish control of a write destination or identify the original overwritten object.",
-        "No memory-disclosure primitive, acquired kernel access, MIE bypass, or complete jailbreak is demonstrated.",
-        "The source and panic were inspected. Exact CVE attribution was not independently established by a driver binary comparison, and no on-device reproduction was performed here."
+        "The crash location, AppleAVE2 +0xDA78, shows where it crashed. It does not show control over where the write goes or which object was overwritten.",
+        "It does not show a way to read memory, real kernel access, a way past MIE or a full jailbreak.",
+        "We inspected the source and crash log. We did not confirm the exact CVE by comparing driver binaries, and we did not reproduce the crash on a device."
       ],
       "sources": [
         {
-          "title": "Reproduction source, controls, and panic evidence",
+          "title": "Reproduction source, controls and crash log",
           "url": "https://github.com/MchinaMd57764/AVETemporalPoC-CVE-2026-112705/tree/ace18d23f059bc9a69305e74a837b06395c3ffc2",
-          "kind": "PoC and supplied runtime evidence"
+          "kind": "PoC and author’s test results"
         }
       ],
-      "revision": "ace18d23f059bc9a69305e74a837b06395c3ffc2 · default-branch head unchanged at November 3 review.",
+      "revision": "Commit ace18d23f059bc9a69305e74a837b06395c3ffc2. No new commits as of the November 3 review.",
       "project": "AppleAVE2 · temporal layers",
-      "update": "Supplied panic supports a crash; useful kernel access remains open.",
+      "summary": "Public code that crashes the kernel through the video encoder. It gives no control.",
+      "update": "Crash log confirms a kernel crash. Useful kernel access is unproven.",
       "capability": "Kernel crash",
-      "trackerScope": "iPhone18,1; iOS 27.0.1 (24A446)",
+      "trackerScope": "iPhone18,1 on iOS 27.0.1 (24A446)",
       "artifact": "Source + panic",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Trigger source and supplied device panic; crash capability only."
+      "reviewBasis": "Trigger source code and a crash log from a device. It shows a crash only."
     },
     {
       "id": "coremedia-file-descriptors",
       "date": "2026-10-28",
       "type": "poc",
+      "category": "sandbox",
       "status": "Public PoC",
       "topic": "CoreMedia / file access",
       "cve": "CVE-2026-112706",
-      "title": "A media service returns file access the client does not have.",
-      "dek": "The published app reads a daemon-opened descriptor while its direct open of the same path is denied. The demonstrated access is centered on the media library.",
-      "scope": "Reported tests: iOS 26.5 (23F77), 27.0 (24A437), 27.0.1 (24A446)",
+      "title": "A media service hands apps files they cannot open themselves.",
+      "dek": "The published app reads a file through a handle opened by a system service, even though opening the same path directly is denied. The access shown is mostly the media library.",
+      "scope": "Reported tests: iOS 26.5 (23F77), 27.0 (24A437) and 27.0.1 (24A446)",
       "observed": [
-        "The PoC asks mediaplaybackd to open a client-selected path and obtains a live file descriptor in the reply.",
-        "Source and supplied logs show reads through that descriptor, including SQLite content, alongside a denied direct-open control.",
-        "The tested accessible domain centers on the media library. Tested protected paths and writes remain denied."
+        "The PoC asks mediaplaybackd, a media system service, to open a path the app chooses. The reply contains an open file handle.",
+        "The source and logs show reads through that handle, including SQLite database content. Opening the same path directly is denied.",
+        "The files reachable in testing are mostly in the media library. Tested protected paths and tested writes are still denied."
       ],
-      "meaning": "This is a completed, bounded access-control violation in the supplied evidence. The service acts with authority the client lacks, but receiving a descriptor does not grant general control of the service or change the client’s sandbox policy.",
+      "meaning": "The author’s evidence shows a real but limited access-control bug. The service opens files with permissions the app does not have. Getting a file handle does not give the app control of the service or loosen its own sandbox.",
       "limits": [
-        "The publication does not establish general filesystem access, service-process execution, or kernel access.",
-        "The path survey is bounded; it is not an exhaustive map of every readable or denied file.",
-        "The author reports an independent duplicate disclosure. Apple’s advisory credit is not independent validation of this repository’s reproduction.",
-        "The issue is reported fixed in iOS 26.7.2 and 27.2."
+        "It does not show general file system access, running code in the service, or kernel access.",
+        "The list of tested paths is limited. It is not a full map of which files can and cannot be read.",
+        "The author reports that someone else found the same bug independently. Apple’s credit in its advisory does not independently confirm this reproduction.",
+        "Reported fixed in iOS 26.7.2 and 27.2."
       ],
       "sources": [
         {
-          "title": "Source, cross-version test matrix, and supplied logs",
+          "title": "Source, test results across iOS versions, and logs",
           "url": "https://github.com/MchinaMd57764/CVE-2026-112706-CoreMedia-fd-leak/tree/ead6cf102736cbe5077bef1a892c7da170851de3",
-          "kind": "PoC and supplied runtime evidence"
+          "kind": "PoC and author’s test results"
         },
         {
-          "title": "Apple’s security advisory",
+          "title": "Apple’s security notes",
           "url": "https://support.apple.com/en-us/149227",
-          "kind": "Vendor advisory"
+          "kind": "Apple advisory"
         }
       ],
-      "revision": "ead6cf102736cbe5077bef1a892c7da170851de3 · default-branch head unchanged at November 3 review.",
+      "revision": "Commit ead6cf102736cbe5077bef1a892c7da170851de3. No new commits as of the November 3 review.",
       "project": "CoreMedia · file descriptors",
-      "update": "Daemon-opened descriptors expose a limited media-library domain.",
+      "summary": "An app can read some media files it should not, through a system service.",
+      "update": "A system service’s file handles expose part of the media library.",
       "capability": "Limited file read",
-      "trackerScope": "iOS 26.5 / 27.0 / 27.0.1 reported",
+      "trackerScope": "Reported on iOS 26.5, 27.0 and 27.0.1",
       "artifact": "Source + logs",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Source and supplied reads compared with denied direct-open controls."
+      "reviewBasis": "Source code and the author’s read logs, compared with direct opens that were denied."
     },
     {
       "id": "coregraphics-shading",
       "date": "2026-10-27",
       "type": "poc",
+      "category": "input",
       "status": "Pending evidence",
       "topic": "CoreGraphics / PDF",
-      "title": "A PDF shading reproduction reports input-controlled pointer corruption.",
-      "dek": "The generator and fix analysis offer a useful hypothesis to reproduce. Raw crash reports are withheld, and the exact CVE mapping remains tentative.",
-      "scope": "Reported iPhone 16e, iOS 27.0 RC (24A435)",
+      "title": "A PDF shading bug reportedly lets the file corrupt a pointer.",
+      "dek": "The file generator and fix analysis are worth trying to reproduce. The raw crash reports are not public, and the CVE match is uncertain.",
+      "scope": "Reported: iPhone 16e, iOS 27.0 RC (24A435)",
       "observed": [
-        "The repository provides a PDF generator, a benign control, and comparisons of pre-fix and fixed disassembly.",
-        "The author reports repeated Preview crashes with a file-selected value appearing in the corrupted pointer. Raw crash reports are withheld.",
-        "The separate CMap route in the same repository did not work through the tested vehicle."
+        "The repository has a PDF generator, a harmless control file and disassembly from before and after the fix.",
+        "The author reports repeated Preview crashes where a value chosen in the file shows up in the corrupted pointer. The raw crash reports are not shared.",
+        "A second route in the same repository, through CMap, did not work with the tested delivery method."
       ],
-      "meaning": "If independently reproduced, the reported value fingerprint would support more meaningful input influence than an unexplained crash. The published material is worth investigating, with its evidence limits kept visible.",
+      "meaning": "If someone reproduces it, the value pattern in the pointer would show that the file has real influence, which means more than an unexplained crash. The material is worth investigating, as long as its gaps stay clear.",
       "limits": [
-        "The mapping between CVE-2026-112611 and CVE-2026-112610 is explicitly tentative.",
-        "Fixed-device behavior was assessed statically, not demonstrated in the supplied on-device run.",
-        "This is not evidence of two working exploits, code execution, or a jailbreak."
+        "The author says the match between CVE-2026-112611 and CVE-2026-112610 is uncertain.",
+        "Behavior on fixed devices was judged from the code, not shown in the on-device test.",
+        "This does not show two working exploits, code execution or a jailbreak."
       ],
       "sources": [
         {
-          "title": "Generator, analysis, and reported device results",
+          "title": "Generator, analysis and reported device results",
           "url": "https://github.com/Ping-2o/CVE-2026-112611-cg-shading/tree/ef20b59a9793147f82d0d13541a46ca34866cbf1",
           "kind": "PoC and researcher analysis"
         }
       ],
-      "revision": "ef20b59a9793147f82d0d13541a46ca34866cbf1 · default-branch head unchanged at November 3 review.",
+      "revision": "Commit ef20b59a9793147f82d0d13541a46ca34866cbf1. No new commits as of the November 3 review.",
       "project": "CoreGraphics · PDF shading",
-      "update": "Raw crash reports withheld; exact CVE mapping is tentative.",
-      "capability": "Pointer corruption reported",
-      "trackerScope": "iPhone 16e; iOS 27.0 RC (24A435) reported",
+      "summary": "A malformed PDF reportedly corrupts a pointer in Preview. Not yet verified.",
+      "update": "Raw crash reports are not public. The CVE match is uncertain.",
+      "capability": "Pointer corruption, reported",
+      "trackerScope": "iPhone 16e, iOS 27.0 RC (24A435), reported",
       "artifact": "Source + analysis",
       "reviewed": "2026-11-03",
-      "reviewBasis": "Raw crash evidence withheld; CVE assignment remains tentative.",
+      "reviewBasis": "The raw crash evidence is not public, and the CVE match is uncertain.",
       "held": true
     },
     {
       "id": "coremedia-backboardd",
       "date": "2026-11-02",
       "type": "poc",
+      "category": "input",
       "status": "Public PoC",
       "topic": "CoreMedia / backboardd",
       "cve": "CVE-2026-112688",
       "project": "CoreMedia · backboardd",
-      "update": "Controlled daemon corruption; constrained write-1 evidence.",
-      "capability": "Controlled return-address corruption; limited write-1 evidence",
-      "trackerScope": "iPhone19,4 · iOS 27.1 (24A94425)",
+      "summary": "Crafted video data corrupts memory in the iPhone display service.",
+      "update": "Controlled corruption of a system service, plus a limited write of the value 1.",
+      "capability": "Return-address overwrite; limited write of the value 1",
+      "trackerScope": "iPhone19,4 on iOS 27.1 (24A94425)",
       "artifact": "Source + crash evidence",
       "reviewed": "2026-11-05",
-      "title": "CoreMedia PoC corrupts the iPhone display service.",
-      "dek": "The November 2 source release includes controlled return-address corruption and evidence of a constrained byte write in backboardd, the iPhone display service. Pointer authentication blocks the return-address attempt.",
-      "scope": "Supplied evidence: iPhone19,4 (iPhone Duo), iOS 27.1 (24A94425); exact QuartzCore image identified",
+      "title": "A CoreMedia PoC corrupts memory in the iPhone display service.",
+      "dek": "The November 2 source release overwrites a saved return address with chosen data and shows a limited one-byte write in backboardd, the iPhone display service. Pointer authentication stops the return-address attack.",
+      "scope": "Author’s evidence: iPhone19,4 (iPhone Duo), iOS 27.1 (24A94425). The exact QuartzCore build is identified.",
       "observed": [
-        "The published app and payload generator implement malformed Dolby Vision metadata delivery through CoreAnimation into backboardd, the iPhone display service. Both the implementation and supporting artifacts are public.",
-        "The retained crash identifies launchd-owned backboardd on build 24A94425. Its saved return address contains the chosen repeated-byte value. Pointer authentication, which checks return addresses before use, stops execution at the return instruction.",
-        "The separate operator receipt reports that the daemon survived a fixed-byte write request. A subsequent crash from the same PID contains the value 1 at the readback point. The zero control used a different daemon process, so this is not a same-process before-and-after measurement.",
-        "The release credits Ping-2o/duper-cves for initial fix-site research and quietvoid/dovi_tool for payload construction. Apple credits 정우 하 (@0xfa11babe) and Chris Bailey / Short Circuit for the CVE."
+        "The published app and payload generator send malformed Dolby Vision video metadata through CoreAnimation into backboardd, the iPhone display service. The code and supporting files are all public.",
+        "The saved crash shows backboardd, started by launchd, on build 24A94425. Its saved return address holds the chosen repeated-byte value. Pointer authentication, which checks return addresses before they are used, stops execution at the return instruction.",
+        "A separate test receipt reports that the service kept running after a request to write a fixed byte. A later crash from the same process shows the value 1 where it was read back. The zero-value control ran in a different process, so this is not a before-and-after measurement of one process.",
+        "The release credits Ping-2o/duper-cves for finding the fix location and quietvoid/dovi_tool for building the payload. Apple credits 정우 하 (@0xfa11babe) and Chris Bailey / Short Circuit for the CVE."
       ],
-      "meaning": "This supplies stronger evidence than an unexplained daemon crash: attacker-chosen data reaches a saved return address, and a separate observation supports a tightly constrained write of the value 1. It remains a process-memory result. The published evidence does not complete a sandbox escape or jailbreak.",
+      "meaning": "This is stronger than an unexplained crash. Data the attacker chooses reaches a saved return address, and a separate test supports a tightly limited write of the value 1. It is still a result inside one process’s memory. It does not complete a sandbox escape or a jailbreak.",
       "limits": [
-        "This review inspected source and supplied evidence. The PoC was not executed or independently reproduced.",
-        "The byte value is fixed at 1 and the destination remains within an existing 4 GB address range. The daemon-survival observation comes from a sanitized operator receipt; the zero control is from a different process.",
-        "No general memory read/write, code execution, pointer-authentication bypass, kernel access, or full jailbreak is demonstrated.",
-        "The repository describes CVE-2026-112688 as a likely function-level mapping. Apple lists the CoreMedia fix in iOS 27.2, but has not confirmed this exact parser mapping. The advisory’s wider impact statement is not a demonstrated PoC capability."
+        "We read the source and the author’s evidence. The PoC was not run or independently reproduced.",
+        "The written value is always 1, and the target stays inside an existing 4 GB address range. The result that the service kept running comes from a redacted test receipt, and the zero control came from a different process.",
+        "It does not show general memory read or write, code execution, a way past pointer authentication, kernel access or a full jailbreak.",
+        "The repository calls its link to CVE-2026-112688 a likely match at the function level. Apple lists the CoreMedia fix in iOS 27.2 but has not confirmed this exact parser. The wider impact in Apple’s advisory is not something this PoC demonstrates."
       ],
       "sources": [
         {
-          "title": "Pinned app and payload-generator source",
+          "title": "App and payload generator source, pinned",
           "url": "https://github.com/0xjohnnydev/CVE-2026-112688-backboardd/tree/cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10",
           "kind": "Original PoC source, published November 2"
         },
         {
-          "title": "Supplied crash records, receipts and exact-build disassembly",
+          "title": "Crash logs, receipts and exact-build disassembly",
           "url": "https://github.com/0xjohnnydev/CVE-2026-112688-backboardd/tree/cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10/evidence",
-          "kind": "Author-supplied runtime evidence"
+          "kind": "Author’s test results"
         },
         {
-          "title": "Apple’s iOS 27.2 security advisory",
+          "title": "Apple’s iOS 27.2 security notes",
           "url": "https://support.apple.com/en-us/149230",
-          "kind": "Vendor advisory and original CVE attribution"
+          "kind": "Apple advisory and original CVE credit"
         }
       ],
-      "revision": "cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10 · source, build inputs, disassembly, three retained crashes and operator receipt reviewed November 5. Return-address crash SHA-256 matches its published receipt.",
-      "reviewBasis": "Pinned app and payload-generator source, build inputs, exact-build disassembly, supplied crash logs and operator receipt inspected. Source review only; no independent execution."
+      "revision": "Commit cf6ad02838351e2737fbc6bd5a2e2c1af4c23e10. Source, build files, disassembly, three saved crashes and the test receipt reviewed November 5. The SHA-256 hash of the return-address crash matches its published receipt.",
+      "reviewBasis": "Pinned source for the app and payload generator, build files, disassembly for the exact build, and the author’s crash logs and test receipt. We reviewed the source only and did not run it."
     }
   ]
 }

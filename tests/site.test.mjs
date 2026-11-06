@@ -10,7 +10,8 @@ test('every entry has a unique route, public sources, scope, and evidence bounda
   assert.equal(new Set(data.entries.map(entry=>entry.id)).size,data.entries.length);
   for (const entry of data.entries) {
     assert.match(entry.id,/^[a-z0-9-]+$/);
-    for (const key of ['project','update','capability','trackerScope','artifact','reviewed','scope','meaning','revision','reviewBasis']) assert.ok(entry[key],`${entry.id}: missing ${key}`);
+    for (const key of ['project','summary','category','update','capability','trackerScope','artifact','reviewed','scope','meaning','revision','reviewBasis']) assert.ok(entry[key],`${entry.id}: missing ${key}`);
+    assert.ok(['tools','chains','kernel','sandbox','input'].includes(entry.category),`${entry.id}: unknown category ${entry.category}`);
     assert.ok(entry.limits.length && entry.observed.length && entry.sources.length);
     for (const source of entry.sources) assert.equal(new URL(source.url).protocol,'https:');
   }
@@ -77,17 +78,19 @@ test('reviewed baselines close their own review issue, without modifying another
   assert.equal(calls.length,1);assert.equal(calls[0].url,'/repos/owner/tracker/issues/5');
   assert.equal(calls[0].options.body.state,'closed');
 });
-test('priority items lead the page, and every accepted entry appears once in the register', async () => {
+test('priority items lead the register in rank order, and every accepted entry appears once', async () => {
   const home = await readFile('dist/index.html', 'utf8');
   const accepted = data.entries.filter(entry => !entry.held);
   const priority = accepted.filter(entry => entry.priority).sort((a, b) => a.priority - b.priority);
-  const watch = home.slice(home.indexOf('data-priorities'), home.indexOf('id="record"'));
+  const start = home.indexOf('data-priorities');
+  const watch = start < 0 ? '' : home.slice(start, home.indexOf('</tbody>', start));
   for (const entry of priority) {
     for (const key of ['priorityNote', 'nextStep']) assert.ok(entry[key], `${entry.id}: priority entries need ${key}`);
     assert.ok(watch.includes(`notes/${entry.id}/`), `${entry.id} missing from priority watch`);
   }
-  if (priority.length) assert.match(watch, new RegExp(`class="lead" data-id="${priority[0].id}"`));
-  for (const entry of accepted) assert.equal([...home.matchAll(new RegExp(`<tr data-entry [^>]*data-id="${entry.id}"`, 'g'))].length, 1);
+  const order = [...home.matchAll(/<tr data-entry [^>]*data-id="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(order.slice(0, priority.length), priority.map(entry => entry.id));
+  for (const entry of accepted) assert.equal(order.filter(id => id === entry.id).length, 1);
 });
 test('source checks record an explicit state, and the feed lists only accepted entries', async () => {
   const coverage = JSON.parse(await readFile(new URL('../data/coverage.json', import.meta.url)));

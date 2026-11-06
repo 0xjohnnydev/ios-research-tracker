@@ -4,22 +4,22 @@
       "name": "X / Twitter",
       "checkedAt": "2026-11-06T01:12:41Z",
       "state": "partial",
-      "result": "No new kernel release verified in the sampled posts",
-      "scope": "Sampled the cited-researcher Latest search from November 4 onward and a focused public-release search. Original release announcements remain announcements. Repeated AVE coverage and an older DarkSword disclosure were excluded. A public lead led to the November 2 backboardd source review; this is a catch-up addition, not a new November 5 release. Search coverage is sampled, not exhaustive."
+      "result": "No new kernel release confirmed in the sampled posts",
+      "scope": "Checked posts from cited researchers since November 4, plus a search for public releases. Release announcements are still treated as announcements. Repeat posts about AVE and an older DarkSword disclosure were left out. One public lead led to the November 2 backboardd review. That is a catch-up entry, not a new November 5 release. Searches are samples, not a complete check."
     },
     {
       "name": "Discord",
       "checkedAt": "2026-11-06T01:12:41Z",
       "state": "partial",
-      "result": "Four channel searches sampled; older releases excluded",
-      "scope": "Reviewed eight general-channel link results, an empty resources search, and two development-channel results in an overlapping date window. Reviewed four pages, 100 of 111 jailbreak-channel results. Some reply context was unavailable; the final page was not sampled. Public repository and gist dates separated older releases from new claims. No private content is published."
+      "result": "Four channel searches sampled; older releases left out",
+      "scope": "Reviewed eight link results in the general channel, an empty search in resources and two results in development, all in an overlapping date range. In the jailbreak channel, reviewed four pages, 100 of 111 results. Some reply context was missing, and the last page was not checked. Public repository and gist dates separated old releases from new claims. No private content is published."
     },
     {
       "name": "GitHub",
       "checkedAt": "2026-11-06T01:12:41Z",
       "state": "checked",
       "result": "Six watched repositories unchanged; backboardd source added",
-      "scope": "The six existing commit/release baselines remain current and no upstream-review issues are open. Added the November 2 backboardd implementation at a pinned commit after reviewing source, build inputs, exact-build disassembly and supplied runtime evidence. No downloaded PoC was run. The static-analysis notebook head remains unchanged."
+      "scope": "The six existing repositories still match their reviewed commits and releases, and no review issues are open. Added the November 2 backboardd code at a pinned commit after reviewing the source, build files, disassembly for the exact build and the author’s test results. No downloaded PoC was run. The static-analysis notebook has no new commits."
     }
   ]
 }
