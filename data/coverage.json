@@ -2,17 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-08T00:58:04Z",
+      "checkedAt": "2026-11-08T13:02:46Z",
       "state": "partial",
-      "result": "A researcher reported new graphics firmware access; review is pending",
-      "scope": "We sampled posts from named researchers and a Latest search for iOS research since November 6. The searches were bounded and do not cover all posts."
+      "result": "No new disclosure qualified in the posts we sampled",
+      "scope": "We sampled named researchers and a Latest search for iOS research since November 7. The searches were limited and do not cover all posts."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-08T00:58:04Z",
+      "checkedAt": "2026-11-08T13:02:46Z",
       "state": "partial",
-      "result": "One watched change and one new research claim await review",
-      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 still has an open review. We sampled new repositories and selected releases since November 6. The graphics firmware claim needs source and device evidence review. The searches do not cover all GitHub releases."
+      "result": "One watched change and research claims still need review",
+      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 has an open review. We sampled repositories and selected releases since November 7. The graphics firmware claim still needs source and device evidence review. The searches do not cover all GitHub releases."
     }
   ]
 }
