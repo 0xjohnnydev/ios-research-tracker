@@ -2,17 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-07T12:59:16Z",
+      "checkedAt": "2026-11-08T00:58:04Z",
       "state": "partial",
-      "result": "No qualifying new research found in sampled posts",
-      "scope": "We sampled recent posts from five named researchers and a separate Latest search for iOS exploits and releases since November 6. The searches were bounded and do not cover all posts."
+      "result": "A researcher reported new graphics firmware access; review is pending",
+      "scope": "We sampled posts from named researchers and a Latest search for iOS research since November 6. The searches were bounded and do not cover all posts."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-07T12:59:16Z",
+      "checkedAt": "2026-11-08T00:58:04Z",
       "state": "partial",
-      "result": "One watched repository has a change awaiting review",
-      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 has an open review for a software keychain change. We sampled new repositories and selected releases since November 6. Some claims need more evidence. The searches do not cover all GitHub releases."
+      "result": "One watched change and one new research claim await review",
+      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 still has an open review. We sampled new repositories and selected releases since November 6. The graphics firmware claim needs source and device evidence review. The searches do not cover all GitHub releases."
     }
   ]
 }
