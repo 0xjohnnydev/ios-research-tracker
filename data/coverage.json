@@ -2,17 +2,17 @@
   "sources": [
     {
       "name": "X / Twitter",
-      "checkedAt": "2026-11-08T13:02:46Z",
+      "checkedAt": "2026-11-09T01:04:07Z",
       "state": "partial",
-      "result": "No new disclosure qualified in the posts we sampled",
-      "scope": "We sampled named researchers and a Latest search for iOS research since November 7. The searches were limited and do not cover all posts."
+      "result": "We sampled researcher posts and recent iOS disclosures",
+      "scope": "We checked the named researchers and a Latest search since November 7. The searches were limited and do not cover all posts. A new container access claim needs further evidence review."
     },
     {
       "name": "GitHub",
-      "checkedAt": "2026-11-08T13:02:46Z",
+      "checkedAt": "2026-11-09T01:04:07Z",
       "state": "partial",
-      "result": "One watched change and research claims still need review",
-      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 has an open review. We sampled repositories and selected releases since November 7. The graphics firmware claim still needs source and device evidence review. The searches do not cover all GitHub releases."
+      "result": "One watched change and new research claims need review",
+      "scope": "Six of seven watched repositories match their reviewed commits and releases. Liter8 has an open review. We sampled repositories and selected releases since November 7. A new container access claim and the graphics firmware claim need further source and device evidence review. The searches do not cover all GitHub releases."
     }
   ]
 }
